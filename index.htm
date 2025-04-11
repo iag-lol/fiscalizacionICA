@@ -56,7 +56,6 @@
                 transform: translateX(100%);
                 opacity: 0;
             }
-
             100% {
                 transform: translateX(0);
                 opacity: 1;
@@ -304,7 +303,6 @@
             0% {
                 background-position: -100% 0;
             }
-
             100% {
                 background-position: 100% 0;
             }
@@ -327,9 +325,7 @@
                 transform: scale(1);
                 opacity: 0.5;
             }
-
-            75%,
-            100% {
+            75%, 100% {
                 transform: scale(2);
                 opacity: 0;
             }
@@ -343,19 +339,16 @@
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors">
     <!-- Alertas System -->
     <div id="alerts-container" class="fixed top-4 right-4 z-50 flex flex-col gap-3 w-80 pointer-events-none"></div>
-
+    
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
-        <aside id="sidebar"
-            class="w-64 bg-white dark:bg-gray-800 shadow-lg fixed inset-y-0 left-0 z-40 md:relative md:translate-x-0 print:hidden transition-all">
+        <aside id="sidebar" class="w-64 bg-white dark:bg-gray-800 shadow-lg fixed inset-y-0 left-0 z-40 md:relative md:translate-x-0 print:hidden transition-all">
             <div class="flex flex-col h-full">
                 <div class="p-5 border-b dark:border-gray-700">
                     <div class="flex items-center mb-6 space-x-2">
                         <div class="bg-primary-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
                                 <path d="M18 14h-8" />
                                 <path d="M15 18h-5" />
                                 <path d="M10 6h8v4h-8V6Z" />
@@ -370,17 +363,11 @@
 
                 <nav class="p-4 flex-1 overflow-y-auto">
                     <div class="mb-6">
-                        <h3
-                            class="uppercase text-xs font-semibold text-gray-500 dark:text-gray-400 tracking-wider mb-3 px-3">
-                            Principal</h3>
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 dark:text-gray-400 tracking-wider mb-3 px-3">Principal</h3>
                         <ul class="space-y-1">
                             <li>
-                                <a href="#" data-view="dashboard"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
+                                <a href="#" data-view="dashboard" class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
                                         <rect width="7" height="9" x="3" y="3" rx="1" />
                                         <rect width="7" height="5" x="14" y="3" rx="1" />
                                         <rect width="7" height="9" x="14" y="12" rx="1" />
@@ -390,15 +377,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" data-view="registrar"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
+                                <a href="#" data-view="registrar" class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
                                         <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-                                        <path
-                                            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
                                         <path d="M9 14h6" />
                                         <path d="M12 11v6" />
                                     </svg>
@@ -406,12 +388,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" data-view="lista"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
+                                <a href="#" data-view="lista" class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
                                         <line x1="8" x2="21" y1="6" y2="6" />
                                         <line x1="8" x2="21" y1="12" y2="12" />
                                         <line x1="8" x2="21" y1="18" y2="18" />
@@ -426,17 +404,11 @@
                     </div>
 
                     <div class="mb-6">
-                        <h3
-                            class="uppercase text-xs font-semibold text-gray-500 dark:text-gray-400 tracking-wider mb-3 px-3">
-                            Análisis</h3>
+                        <h3 class="uppercase text-xs font-semibold text-gray-500 dark:text-gray-400 tracking-wider mb-3 px-3">Análisis</h3>
                         <ul class="space-y-1">
                             <li>
-                                <a href="#" data-view="reportes"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
+                                <a href="#" data-view="reportes" class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
                                         <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
                                         <path d="M22 12A10 10 0 0 0 12 2v10z" />
                                     </svg>
@@ -449,16 +421,11 @@
 
                 <div class="p-4 border-t dark:border-gray-700 mt-auto">
                     <!-- Theme Switcher -->
-                    <button id="theme-toggle"
-                        class="w-full flex items-center justify-center p-2 text-sm rounded-lg transition-colors bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            id="theme-toggle-dark-icon" class="hidden dark:inline-block mr-2">
+                    <button id="theme-toggle" class="w-full flex items-center justify-center p-2 text-sm rounded-lg transition-colors bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="theme-toggle-dark-icon" class="hidden dark:inline-block mr-2">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            id="theme-toggle-light-icon" class="inline-block dark:hidden mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="theme-toggle-light-icon" class="inline-block dark:hidden mr-2">
                             <circle cx="12" cy="12" r="4" />
                             <path d="M12 2v2" />
                             <path d="M12 20v2" />
@@ -478,12 +445,10 @@
         <div id="sidebar-overlay" class="fixed inset-0 bg-black opacity-50 z-30 hidden md:hidden print:hidden"></div>
 
         <main class="flex-1 flex flex-col overflow-hidden bg-gray-50 dark:bg-gray-900 transition-colors">
-            <header
-                class="bg-white dark:bg-gray-800 shadow-sm p-4 flex justify-between items-center print:hidden transition-colors">
+            <header class="bg-white dark:bg-gray-800 shadow-sm p-4 flex justify-between items-center print:hidden transition-colors">
                 <div class="flex items-center">
                     <button id="menu-button" class="text-gray-600 dark:text-gray-300 mr-4 focus:outline-none md:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="4" x2="20" y1="12" y2="12" />
                             <line x1="4" x2="20" y1="6" y2="6" />
                             <line x1="4" x2="20" y1="18" y2="18" />
@@ -494,11 +459,8 @@
 
                 <div class="flex items-center space-x-3">
                     <!-- Botón de registro rápido -->
-                    <button id="quick-register-button"
-                        class="md:hidden flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="mr-1">
+                    <button id="quick-register-button" class="md:hidden flex items-center px-3 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
                             <path d="M5 12h14" />
                             <path d="M12 5v14" />
                         </svg>
@@ -507,16 +469,12 @@
 
                     <!-- Notificaciones -->
                     <div class="relative">
-                        <button id="notification-button"
-                            class="relative p-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                        <button id="notification-button" class="relative p-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
                                 <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
                             </svg>
-                            <span id="notification-count"
-                                class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+                            <span id="notification-count" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
                         </button>
                     </div>
                 </div>
@@ -530,24 +488,18 @@
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                             <div>
                                 <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Resumen General</h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Visualiza el estado actual de las
-                                    inspecciones</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Visualiza el estado actual de las inspecciones</p>
                             </div>
                             <div class="flex flex-wrap items-center gap-3">
                                 <div>
-                                    <label for="dashboard-filter-terminal"
-                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Filtrar
-                                        Terminal:</label>
-                                    <select id="dashboard-filter-terminal"
-                                        class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                    <label for="dashboard-filter-terminal" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Filtrar Terminal:</label>
+                                    <select id="dashboard-filter-terminal" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                         <option value="">Todos</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="dashboard-date-range"
-                                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Período:</label>
-                                    <select id="dashboard-date-range"
-                                        class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                    <label for="dashboard-date-range" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Período:</label>
+                                    <select id="dashboard-date-range" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                         <option value="today">Hoy</option>
                                         <option value="week">Esta semana</option>
                                         <option value="month">Este mes</option>
@@ -561,15 +513,11 @@
                     <!-- Stats Cards -->
                     <div id="dashboard-kpis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                         <!-- KPI Cards -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
                             <div class="flex justify-between items-center mb-3">
                                 <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Inspecciones Hoy</h4>
-                                <span
-                                    class="p-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                <span class="p-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
                                         <line x1="16" x2="16" y1="2" y2="6" />
                                         <line x1="8" x2="8" y1="2" y2="6" />
@@ -590,15 +538,11 @@
                             <p class="text-xs text-gray-500 dark:text-gray-400">vs. promedio diario</p>
                         </div>
 
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
                             <div class="flex justify-between items-center mb-3">
                                 <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Pendientes</h4>
-                                <span
-                                    class="p-2 rounded-full bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                <span class="p-2 rounded-full bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8" />
                                         <path d="M16 2v4" />
                                         <path d="M8 2v4" />
@@ -609,25 +553,18 @@
                                 </span>
                             </div>
                             <div class="flex items-end">
-                                <p id="kpi-pendientes" class="text-3xl font-bold text-gray-800 dark:text-white mb-1">...
-                                </p>
-                                <span id="kpi-pendientes-badge"
-                                    class="ml-2 text-xs font-medium px-2 py-1 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400">Urgente</span>
+                                <p id="kpi-pendientes" class="text-3xl font-bold text-gray-800 dark:text-white mb-1">...</p>
+                                <span id="kpi-pendientes-badge" class="ml-2 text-xs font-medium px-2 py-1 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400">Urgente</span>
                             </div>
                             <p class="text-xs text-gray-500 dark:text-gray-400">Requieren atención inmediata</p>
                         </div>
 
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
                             <div class="flex justify-between items-center mb-3">
                                 <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">En Revisión</h4>
-                                <span
-                                    class="p-2 rounded-full bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                <span class="p-2 rounded-full bg-yellow-50 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                                         <path d="M14 2v6h6" />
                                         <path d="M16 13H8" />
                                         <path d="M16 17H8" />
@@ -636,33 +573,25 @@
                                 </span>
                             </div>
                             <div class="flex items-end">
-                                <p id="kpi-revision" class="text-3xl font-bold text-gray-800 dark:text-white mb-1">...
-                                </p>
+                                <p id="kpi-revision" class="text-3xl font-bold text-gray-800 dark:text-white mb-1">...</p>
                                 <span id="kpi-revision-change" class="ml-2 text-xs font-medium mb-2"></span>
                             </div>
                             <p class="text-xs text-gray-500 dark:text-gray-400">En proceso de solución</p>
                         </div>
 
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 transition-all hover:shadow-md">
                             <div class="flex justify-between items-center mb-3">
                                 <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Solucionadas</h4>
-                                <span
-                                    class="p-2 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                                <span class="p-2 rounded-full bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
                                         <path d="m9 12 2 2 4-4" />
                                     </svg>
                                 </span>
                             </div>
                             <div class="flex items-end">
-                                <p id="kpi-solucionadas" class="text-3xl font-bold text-gray-800 dark:text-white mb-1">
-                                    ...</p>
-                                <span id="kpi-solucionadas-change"
-                                    class="ml-2 text-xs font-medium mb-2 text-green-600 dark:text-green-400"></span>
+                                <p id="kpi-solucionadas" class="text-3xl font-bold text-gray-800 dark:text-white mb-1">...</p>
+                                <span id="kpi-solucionadas-change" class="ml-2 text-xs font-medium mb-2 text-green-600 dark:text-green-400"></span>
                             </div>
                             <p class="text-xs text-gray-500 dark:text-gray-400">Total completadas</p>
                         </div>
@@ -671,20 +600,16 @@
                     <!-- Charts Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <!-- Estado de inspecciones chart -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
-                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Distribución de Estados
-                            </h4>
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Distribución de Estados</h4>
                             <div class="h-64 relative">
                                 <canvas id="inspeccionesChart"></canvas>
                             </div>
                         </div>
 
                         <!-- Tendencia de inspecciones -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
-                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Tendencia de
-                                Inspecciones</h4>
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Tendencia de Inspecciones</h4>
                             <div class="h-64 relative">
                                 <canvas id="tendenciaChart"></canvas>
                             </div>
@@ -694,8 +619,7 @@
                     <!-- Terminal and Recent Inspections -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <!-- Distribución por Terminal -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 md:col-span-1">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 md:col-span-1">
                             <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Top Terminales</h4>
                             <div class="h-64 relative">
                                 <canvas id="terminalesChart"></canvas>
@@ -703,38 +627,24 @@
                         </div>
 
                         <!-- Recent inspections -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 md:col-span-2">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 md:col-span-2">
                             <div class="flex justify-between items-center mb-4">
-                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Inspecciones Recientes
-                                </h4>
-                                <a href="#" data-view="lista"
-                                    class="text-sm text-primary-600 dark:text-primary-400 hover:underline">Ver todas</a>
+                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Inspecciones Recientes</h4>
+                                <a href="#" data-view="lista" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">Ver todas</a>
                             </div>
                             <div class="overflow-x-auto">
                                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                     <thead>
                                         <tr>
-                                            <th
-                                                class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                PPU</th>
-                                            <th
-                                                class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                Terminal</th>
-                                            <th
-                                                class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                Estado</th>
-                                            <th
-                                                class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                Fecha</th>
+                                            <th class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">PPU</th>
+                                            <th class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Terminal</th>
+                                            <th class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Estado</th>
+                                            <th class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Fecha</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="recent-inspections"
-                                        class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tbody id="recent-inspections" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                         <tr>
-                                            <td colspan="4"
-                                                class="px-3 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
-                                                Cargando...</td>
+                                            <td colspan="4" class="px-3 py-4 text-center text-sm text-gray-500 dark:text-gray-400">Cargando...</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -747,62 +657,43 @@
                 <div id="registrar-view" class="view-container hidden">
                     <div class="mb-6">
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Nueva Inspección</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Registre los detalles de la fiscalización
-                            ICA A18</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Registre los detalles de la fiscalización ICA A18</p>
                     </div>
 
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
                         <div class="p-5 border-b border-gray-200 dark:border-gray-700">
-                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Formulario de Inspección
-                            </h4>
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Formulario de Inspección</h4>
                         </div>
 
                         <form id="registro-form" class="p-5">
                             <fieldset class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-6">
-                                <legend class="text-base font-semibold text-gray-800 dark:text-white mb-4">Información
-                                    General</legend>
+                                <legend class="text-base font-semibold text-gray-800 dark:text-white mb-4">Información General</legend>
                                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                     <div>
-                                        <label for="fiscalizador"
-                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nombre
-                                            Fiscalizador <span class="text-red-500">*</span></label>
-                                        <input type="text" id="fiscalizador" name="fiscalizador" required
-                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                        <label for="fiscalizador" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nombre Fiscalizador <span class="text-red-500">*</span></label>
+                                        <input type="text" id="fiscalizador" name="fiscalizador" required class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                     </div>
                                     <div>
-                                        <label for="registrador"
-                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nombre
-                                            Registrador <span class="text-red-500">*</span></label>
-                                        <input type="text" id="registrador" name="registrador" required
-                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                        <label for="registrador" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nombre Registrador <span class="text-red-500">*</span></label>
+                                        <input type="text" id="registrador" name="registrador" required class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                     </div>
                                     <div>
-                                        <label for="terminal"
-                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal
-                                            <span class="text-red-500">*</span></label>
-                                        <select id="terminal" name="terminal" required
-                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                        <label for="terminal" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal <span class="text-red-500">*</span></label>
+                                        <select id="terminal" name="terminal" required class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                             <option value="">Cargando...</option>
                                         </select>
                                         <div id="terminal-error-container" class="mt-1"></div>
                                     </div>
                                     <div>
-                                        <label for="ppu"
-                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">PPU
-                                            del Bus <span class="text-red-500">*</span></label>
-                                        <select id="ppu" name="ppu" required
-                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                        <label for="ppu" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">PPU del Bus <span class="text-red-500">*</span></label>
+                                        <select id="ppu" name="ppu" required class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                             <option value="">Cargando...</option>
                                         </select>
                                         <div id="ppu-error-container" class="mt-1"></div>
                                     </div>
                                     <div>
-                                        <label for="estado_inicial"
-                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Estado
-                                            Inicial <span class="text-red-500">*</span></label>
-                                        <select id="estado_inicial" name="estado_inicial" required
-                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                        <label for="estado_inicial" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Estado Inicial <span class="text-red-500">*</span></label>
+                                        <select id="estado_inicial" name="estado_inicial" required class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                             <option value="Pendiente">Pendiente</option>
                                             <option value="En Revisión">En Revisión</option>
                                             <option value="Solucionado">Solucionado</option>
@@ -812,24 +703,17 @@
                             </fieldset>
 
                             <fieldset class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-6">
-                                <legend class="text-base font-semibold text-gray-800 dark:text-white mb-4">Asignaciones
-                                    (Opcional)</legend>
+                                <legend class="text-base font-semibold text-gray-800 dark:text-white mb-4">Asignaciones (Opcional)</legend>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="supervisor"
-                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Asignar
-                                            Supervisor</label>
-                                        <select id="supervisor" name="supervisor"
-                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                        <label for="supervisor" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Asignar Supervisor</label>
+                                        <select id="supervisor" name="supervisor" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                             <option value="">Sin asignar</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label for="cleaner"
-                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Asignar
-                                            Cleaner</label>
-                                        <select id="cleaner" name="cleaner"
-                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                        <label for="cleaner" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Asignar Cleaner</label>
+                                        <select id="cleaner" name="cleaner" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                             <option value="">Sin asignar</option>
                                         </select>
                                     </div>
@@ -838,40 +722,28 @@
 
                             <fieldset class="mb-6 border-b border-gray-200 dark:border-gray-700 pb-6">
                                 <div class="flex justify-between mb-4">
-                                    <legend class="text-base font-semibold text-gray-800 dark:text-white">Criterios de
-                                        Inspección (ICA A18)</legend>
+                                    <legend class="text-base font-semibold text-gray-800 dark:text-white">Criterios de Inspección (ICA A18)</legend>
                                     <div class="text-sm">
-                                        <span id="criterios-completados"
-                                            class="font-medium text-primary-600 dark:text-primary-400">0/0</span>
-                                        completados
+                                        <span id="criterios-completados" class="font-medium text-primary-600 dark:text-primary-400">0/0</span> completados
                                     </div>
                                 </div>
                                 <div id="criterios-container" class="space-y-4">
                                     <div class="flex items-center justify-center py-6">
-                                        <div
-                                            class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 dark:border-primary-400">
-                                        </div>
+                                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 dark:border-primary-400"></div>
                                         <span class="ml-3 text-gray-500 dark:text-gray-400">Cargando criterios...</span>
                                     </div>
                                 </div>
                             </fieldset>
 
                             <div class="mb-6">
-                                <label for="observaciones_generales"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Observaciones
-                                    Generales (Opcional)</label>
-                                <textarea id="observaciones_generales" name="observaciones_generales" rows="3"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                                    placeholder="Añadir comentarios generales sobre la inspección..."></textarea>
+                                <label for="observaciones_generales" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Observaciones Generales (Opcional)</label>
+                                <textarea id="observaciones_generales" name="observaciones_generales" rows="3" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" placeholder="Añadir comentarios generales sobre la inspección..."></textarea>
                             </div>
 
                             <div class="flex items-center justify-between flex-wrap gap-4">
                                 <div>
-                                    <button type="submit" id="submit-button"
-                                        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
+                                    <button type="submit" id="submit-button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
                                             <polyline points="17 21 17 13 7 13 7 21" />
                                             <polyline points="7 3 7 8 15 8" />
@@ -889,44 +761,32 @@
                 <div id="lista-view" class="view-container hidden">
                     <div class="mb-6">
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Listado de Inspecciones</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Gestione y filtre todas las inspecciones
-                            registradas</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Gestione y filtre todas las inspecciones registradas</p>
                     </div>
 
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 mb-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 mb-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-end">
                             <div>
-                                <label for="search-ppu"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Buscar
-                                    PPU</label>
+                                <label for="search-ppu" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Buscar PPU</label>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-4 w-4 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 dark:text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <circle cx="11" cy="11" r="8" />
                                             <path d="m21 21-4.3-4.3" />
                                         </svg>
                                     </div>
-                                    <input type="text" id="search-ppu" placeholder="Ej: LXWP57"
-                                        class="pl-10 w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                    <input type="text" id="search-ppu" placeholder="Ej: LXWP57" class="pl-10 w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                 </div>
                             </div>
                             <div>
-                                <label for="filter-terminal"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal</label>
-                                <select id="filter-terminal"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="filter-terminal" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal</label>
+                                <select id="filter-terminal" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                     <option value="">Todos</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="filter-estado"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Estado</label>
-                                <select id="filter-estado"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="filter-estado" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Estado</label>
+                                <select id="filter-estado" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                     <option value="">Todos</option>
                                     <option value="Pendiente">Pendiente</option>
                                     <option value="En Revisión">En Revisión</option>
@@ -934,35 +794,23 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="filter-fecha-inicio"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha
-                                    Desde</label>
-                                <input type="date" id="filter-fecha-inicio" title="Fecha inicio"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="filter-fecha-inicio" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha Desde</label>
+                                <input type="date" id="filter-fecha-inicio" title="Fecha inicio" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                             </div>
                             <div>
-                                <label for="filter-fecha-fin"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha
-                                    Hasta</label>
-                                <input type="date" id="filter-fecha-fin" title="Fecha fin"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="filter-fecha-fin" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha Hasta</label>
+                                <input type="date" id="filter-fecha-fin" title="Fecha fin" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                             </div>
                         </div>
                         <div class="mt-4 flex items-center justify-between">
-                            <button id="apply-filters-button"
-                                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                            <button id="apply-filters-button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" />
                                 </svg>
                                 Aplicar Filtros
                             </button>
-                            <button id="export-button"
-                                class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                            <button id="export-button" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                                     <polyline points="7 10 12 15 17 10" />
                                     <line x1="12" x2="12" y1="15" y2="3" />
@@ -972,41 +820,24 @@
                         </div>
                     </div>
 
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
                         <div id="lista-table-container" class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead>
                                     <tr class="bg-gray-50 dark:bg-gray-700/50">
-                                        <th scope="col"
-                                            class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                            PPU</th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                            Fecha</th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                            Terminal</th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                            Fiscalizador</th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                            Estado</th>
-                                        <th scope="col"
-                                            class="px-4 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                            Acciones</th>
+                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">PPU</th>
+                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Fecha</th>
+                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Terminal</th>
+                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Fiscalizador</th>
+                                        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Estado</th>
+                                        <th scope="col" class="px-4 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody id="inspecciones-tbody"
-                                    class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                <tbody id="inspecciones-tbody" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                     <tr>
-                                        <td colspan="6"
-                                            class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+                                        <td colspan="6" class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
                                             <div class="flex flex-col items-center justify-center">
-                                                <div
-                                                    class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 dark:border-primary-400 mb-3">
-                                                </div>
+                                                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 dark:border-primary-400 mb-3"></div>
                                                 <p>Cargando inspecciones...</p>
                                             </div>
                                         </td>
@@ -1015,39 +846,29 @@
                             </table>
                         </div>
                         <div id="lista-error-container" class="p-4 text-center"></div>
-
+                        
                         <!-- Paginación -->
-                        <div
-                            class="bg-white dark:bg-gray-800 px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 sm:px-6">
+                        <div class="bg-white dark:bg-gray-800 px-4 py-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 sm:px-6">
                             <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                                 <div>
                                     <p id="pagination-info" class="text-sm text-gray-700 dark:text-gray-300">
-                                        Mostrando <span class="font-medium" id="pagination-start">0</span> a <span
-                                            class="font-medium" id="pagination-end">0</span> de <span
-                                            class="font-medium" id="pagination-total">0</span> resultados
+                                        Mostrando <span class="font-medium" id="pagination-start">0</span> a <span class="font-medium" id="pagination-end">0</span> de <span class="font-medium" id="pagination-total">0</span> resultados
                                     </p>
                                 </div>
                                 <div>
-                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
-                                        aria-label="Pagination">
-                                        <button id="pagination-prev"
-                                            class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <button id="pagination-prev" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
                                             <span class="sr-only">Anterior</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <polyline points="15 18 9 12 15 6" />
                                             </svg>
                                         </button>
                                         <div id="pagination-buttons" class="flex items-center">
                                             <!-- Botones de página generados dinámicamente -->
                                         </div>
-                                        <button id="pagination-next"
-                                            class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                                        <button id="pagination-next" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
                                             <span class="sr-only">Siguiente</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <polyline points="9 18 15 12 9 6" />
                                             </svg>
                                         </button>
@@ -1066,15 +887,12 @@
                     </div>
 
                     <!-- Filtros de Reporte -->
-                    <div
-                        class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 mb-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700 mb-6">
                         <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Filtros del Reporte</h4>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
-                                <label for="reporte-periodo"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Período</label>
-                                <select id="reporte-periodo"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="reporte-periodo" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Período</label>
+                                <select id="reporte-periodo" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                     <option value="week">Esta semana</option>
                                     <option value="month">Este mes</option>
                                     <option value="quarter">Este trimestre</option>
@@ -1083,19 +901,14 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="reporte-terminal"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal</label>
-                                <select id="reporte-terminal"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="reporte-terminal" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal</label>
+                                <select id="reporte-terminal" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                     <option value="">Todos los terminales</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="reporte-tipo"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tipo de
-                                    Reporte</label>
-                                <select id="reporte-tipo"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="reporte-tipo" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tipo de Reporte</label>
+                                <select id="reporte-tipo" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                                     <option value="general">General</option>
                                     <option value="terminal">Por Terminal</option>
                                     <option value="criteria">Por Criterio</option>
@@ -1104,26 +917,17 @@
                         </div>
                         <div id="fechas-personalizadas" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 hidden">
                             <div>
-                                <label for="reporte-fecha-inicio"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha
-                                    Inicio</label>
-                                <input type="date" id="reporte-fecha-inicio"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="reporte-fecha-inicio" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha Inicio</label>
+                                <input type="date" id="reporte-fecha-inicio" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                             </div>
                             <div>
-                                <label for="reporte-fecha-fin"
-                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha
-                                    Fin</label>
-                                <input type="date" id="reporte-fecha-fin"
-                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <label for="reporte-fecha-fin" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Fecha Fin</label>
+                                <input type="date" id="reporte-fecha-fin" class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
                             </div>
                         </div>
                         <div class="mt-4">
-                            <button id="generar-reporte-btn"
-                                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                            <button id="generar-reporte-btn" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 12V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h7.5" />
                                     <path d="M16 2v4" />
                                     <path d="M8 2v4" />
@@ -1139,27 +943,20 @@
                     <!-- Contenido del Reporte -->
                     <div id="reporte-content" class="space-y-6">
                         <!-- Resumen -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
                             <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Resumen General</h4>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div class="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-                                    <p class="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">Total
-                                        Inspecciones</p>
-                                    <p id="reporte-total" class="text-2xl font-bold text-blue-800 dark:text-blue-200">-
-                                    </p>
+                                    <p class="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">Total Inspecciones</p>
+                                    <p id="reporte-total" class="text-2xl font-bold text-blue-800 dark:text-blue-200">-</p>
                                 </div>
                                 <div class="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
-                                    <p class="text-sm font-medium text-green-700 dark:text-green-300 mb-1">Tasa de
-                                        Cumplimiento</p>
-                                    <p id="reporte-tasa-cumplimiento"
-                                        class="text-2xl font-bold text-green-800 dark:text-green-200">-</p>
+                                    <p class="text-sm font-medium text-green-700 dark:text-green-300 mb-1">Tasa de Cumplimiento</p>
+                                    <p id="reporte-tasa-cumplimiento" class="text-2xl font-bold text-green-800 dark:text-green-200">-</p>
                                 </div>
                                 <div class="p-4 bg-amber-50 dark:bg-amber-900/30 rounded-lg">
-                                    <p class="text-sm font-medium text-amber-700 dark:text-amber-300 mb-1">Tiempo
-                                        Promedio Resolución</p>
-                                    <p id="reporte-tiempo-promedio"
-                                        class="text-2xl font-bold text-amber-800 dark:text-amber-200">-</p>
+                                    <p class="text-sm font-medium text-amber-700 dark:text-amber-300 mb-1">Tiempo Promedio Resolución</p>
+                                    <p id="reporte-tiempo-promedio" class="text-2xl font-bold text-amber-800 dark:text-amber-200">-</p>
                                 </div>
                             </div>
                         </div>
@@ -1167,20 +964,16 @@
                         <!-- Gráficos -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <!-- Tendencia estado temporal -->
-                            <div
-                                class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
-                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Tendencia Temporal
-                                </h4>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
+                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Tendencia Temporal</h4>
                                 <div class="h-64 relative">
                                     <canvas id="reporte-tendencia-chart"></canvas>
                                 </div>
                             </div>
 
                             <!-- Distribución por criterio -->
-                            <div
-                                class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
-                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Cumplimiento por
-                                    Criterio</h4>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
+                                <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Cumplimiento por Criterio</h4>
                                 <div class="h-64 relative">
                                     <canvas id="reporte-criterios-chart"></canvas>
                                 </div>
@@ -1188,32 +981,21 @@
                         </div>
 
                         <!-- Tabla de Criterios Problemáticos -->
-                        <div
-                            class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-5 border border-gray-100 dark:border-gray-700">
                             <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">Criterios Críticos</h4>
                             <div class="overflow-x-auto">
                                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                     <thead class="bg-gray-50 dark:bg-gray-700/50">
                                         <tr>
-                                            <th scope="col"
-                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                Criterio</th>
-                                            <th scope="col"
-                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                No Cumplimientos</th>
-                                            <th scope="col"
-                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                % Incumplimiento</th>
-                                            <th scope="col"
-                                                class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                                Tendencia</th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Criterio</th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">No Cumplimientos</th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">% Incumplimiento</th>
+                                            <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tendencia</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="reporte-criterios-tbody"
-                                        class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tbody id="reporte-criterios-tbody" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                         <tr>
-                                            <td colspan="4"
-                                                class="px-4 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                                            <td colspan="4" class="px-4 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
                                                 Genere un reporte para ver los datos
                                             </td>
                                         </tr>
@@ -1224,11 +1006,8 @@
 
                         <!-- Opciones de Exportación -->
                         <div class="flex justify-end mt-6">
-                            <button id="exportar-reporte-btn"
-                                class="inline-flex items-center px-4 py-2 ml-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                            <button id="exportar-reporte-btn" class="inline-flex items-center px-4 py-2 ml-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                                     <polyline points="14 2 14 8 20 8" />
                                     <path d="M12 18v-6" />
@@ -1236,14 +1015,10 @@
                                 </svg>
                                 Exportar a Excel
                             </button>
-                            <button id="imprimir-reporte-btn"
-                                class="inline-flex items-center px-4 py-2 ml-3 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                            <button id="imprimir-reporte-btn" class="inline-flex items-center px-4 py-2 ml-3 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="6 9 6 2 18 2 18 9" />
-                                    <path
-                                        d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
                                     <rect width="12" height="8" x="6" y="14" />
                                 </svg>
                                 Imprimir Reporte
@@ -1256,17 +1031,12 @@
     </div>
 
     <!-- Modal de Detalles -->
-    <div id="detalle-modal"
-        class="fixed inset-0 bg-gray-600 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75 overflow-y-auto h-full w-full z-50 hidden print:hidden flex items-center justify-center p-4 transition-all duration-300">
-        <div
-            class="relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-gray-800 rounded-lg shadow-xl flex flex-col transition-all duration-300">
-            <div
-                class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 rounded-t-lg z-10">
+    <div id="detalle-modal" class="fixed inset-0 bg-gray-600 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75 overflow-y-auto h-full w-full z-50 hidden print:hidden flex items-center justify-center p-4 transition-all duration-300">
+        <div class="relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-gray-800 rounded-lg shadow-xl flex flex-col transition-all duration-300">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 rounded-t-lg z-10">
                 <h3 class="text-xl font-semibold text-gray-800 dark:text-white">Detalle de Inspección</h3>
-                <button id="close-modal-button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100 rounded-lg text-sm p-1.5 inline-flex items-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <button id="close-modal-button" class="text-gray-400 bg-transparent hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100 rounded-lg text-sm p-1.5 inline-flex items-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 6 6 18" />
                         <path d="m6 6 12 12" />
                     </svg>
@@ -1276,30 +1046,23 @@
                 <div id="modal-imprimir">
                     <div class="space-y-5" id="modal-content">
                         <div class="flex flex-col items-center justify-center py-6">
-                            <div
-                                class="animate-spin rounded-full h-10 w-10 border-b-2 border-primary-600 dark:border-primary-400 mb-3">
-                            </div>
+                            <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-primary-600 dark:border-primary-400 mb-3"></div>
                             <p class="text-gray-500 dark:text-gray-400">Cargando detalles...</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div
-                class="modal-buttons p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end space-x-2 sticky bottom-0 bg-white dark:bg-gray-800 rounded-b-lg">
-                <button id="print-modal-button"
-                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="modal-buttons p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end space-x-2 sticky bottom-0 bg-white dark:bg-gray-800 rounded-b-lg">
+                <button id="print-modal-button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 9 6 2 18 2 18 9" />
                         <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
                         <rect width="12" height="8" x="6" y="14" />
                     </svg>
                     Imprimir
                 </button>
-                <button id="close-modal-button-bottom"
-                    class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <button id="close-modal-button-bottom" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 6 6 18" />
                         <path d="m6 6 12 12" />
                     </svg>
@@ -1329,7 +1092,7 @@
         let currentPage = 1;
         let pageSize = 10;
         let totalPages = 1;
-
+        
         // Paletas de colores
         const chartColors = {
             light: {
@@ -1447,11 +1210,11 @@
             if (views[viewId]) {
                 views[viewId].classList.remove('hidden');
                 let titleText = viewId.charAt(0).toUpperCase() + viewId.slice(1);
-
+                
                 if (viewId === 'lista') titleText = 'Ver Inspecciones';
                 if (viewId === 'registrar') titleText = 'Registrar Inspección';
                 if (viewId === 'reportes') titleText = 'Reportes y Análisis';
-
+                
                 if (viewTitle) viewTitle.textContent = titleText;
                 currentView = viewId;
 
@@ -1484,7 +1247,7 @@
                     sidebar.classList.remove('open');
                     sidebarOverlay.classList.add('hidden');
                 }
-
+                
                 // Actualizar navegación activa
                 if (navLinks) {
                     navLinks.forEach(link => {
@@ -1569,9 +1332,9 @@
             if (!alertsContainer) return;
 
             const id = 'alert-' + (++lastNotificationId);
-
+            
             let bgColor, textColor, iconColor, borderColor, icon;
-
+            
             if (isDarkMode) {
                 if (type === 'success') {
                     bgColor = 'bg-green-900/30';
@@ -1659,7 +1422,7 @@
                     alertToRemove.style.opacity = '0';
                     alertToRemove.style.transform = 'translateX(100%)';
                     alertToRemove.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-
+                    
                     setTimeout(() => {
                         if (alertToRemove && alertToRemove.parentNode) {
                             alertToRemove.parentNode.removeChild(alertToRemove);
@@ -1688,7 +1451,7 @@
         function toggleDarkMode() {
             isDarkMode = !isDarkMode;
             const htmlElement = document.documentElement;
-
+            
             if (isDarkMode) {
                 htmlElement.classList.remove('light');
                 htmlElement.classList.add('dark');
@@ -1702,7 +1465,7 @@
                 if (themeToggleDarkIcon) themeToggleDarkIcon.classList.add('hidden');
                 if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
             }
-
+            
             // Actualizar gráficos si existen
             updateAllCharts();
         }
@@ -1728,23 +1491,23 @@
 
         function updateChartColors(chartInstance) {
             const colorScheme = isDarkMode ? chartColors.dark : chartColors.light;
-
+            
             // Actualizar opciones generales
             if (chartInstance.options.scales && chartInstance.options.scales.x) {
                 chartInstance.options.scales.x.grid.color = colorScheme.grid;
                 chartInstance.options.scales.x.ticks.color = colorScheme.text;
             }
-
+            
             if (chartInstance.options.scales && chartInstance.options.scales.y) {
                 chartInstance.options.scales.y.grid.color = colorScheme.grid;
                 chartInstance.options.scales.y.ticks.color = colorScheme.text;
             }
-
+            
             // Actualizar leyenda
             if (chartInstance.options.plugins && chartInstance.options.plugins.legend) {
                 chartInstance.options.plugins.legend.labels.color = colorScheme.text;
             }
-
+            
             // Aplicar cambios
             chartInstance.update();
         }
@@ -1760,7 +1523,7 @@
         function calculateDateRange(range) {
             const now = new Date();
             let startDate = new Date();
-
+            
             if (range === 'today') {
                 startDate.setHours(0, 0, 0, 0);
             } else if (range === 'week') {
@@ -1775,7 +1538,7 @@
                 // Valor predeterminado: todo
                 startDate = new Date(2000, 0, 1);
             }
-
+            
             return {
                 start: startDate.toISOString(),
                 end: now.toISOString()
@@ -1889,18 +1652,18 @@
         async function loadBusesParaFormulario() {
             if (!ppuSelect || !ppuErrorContainer) return;
             if (busesData.length > 0 && ppuSelect.options.length > 1) return;
-
+            
             showLoadingMessage(ppuErrorContainer, 'Cargando buses...');
             ppuSelect.innerHTML = '<option value="">Cargando...</option>';
             ppuSelect.disabled = true;
-
+            
             try {
                 const { data, error } = await supabaseClient.from('InspeccionICA_buses').select('ppu').order('ppu');
                 if (error) throw error;
-
+                
                 busesData = data;
                 ppuSelect.innerHTML = '<option value="">Seleccione PPU</option>';
-
+                
                 if (data.length === 0) {
                     ppuSelect.innerHTML = '<option value="">No hay buses</option>';
                     showErrorMessage(ppuErrorContainer, 'No hay buses disponibles.');
@@ -1910,7 +1673,7 @@
                     });
                     ppuErrorContainer.innerHTML = '';
                 }
-
+                
                 ppuSelect.disabled = false;
             } catch (error) {
                 console.error(`Error al cargar buses: ${error.message}`);
@@ -1924,9 +1687,9 @@
         async function loadCriteriosParaFormulario() {
             if (!criteriosContainer || !formMessage) return;
             if (criteriosData.length > 0 && criteriosContainer.children.length > 1) return;
-
+            
             showLoadingMessage(criteriosContainer, 'Cargando criterios...');
-
+            
             try {
                 const { data, error } = await supabaseClient
                     .from('InspeccionICA_criterios')
@@ -1935,25 +1698,25 @@
                     .eq('codigo_articulo', 'A18')
                     .eq('activo', true)
                     .order('numero_condicion');
-
+                
                 if (error) throw error;
-
+                
                 criteriosData = data;
                 criteriosContainer.innerHTML = '';
-
+                
                 if (data.length === 0) {
                     criteriosContainer.innerHTML = '<p class="text-red-600 dark:text-red-400 p-4">Error: No hay criterios activos.</p>';
                     return;
                 }
-
+                
                 data.forEach(criterio => {
                     const div = document.createElement('div');
                     div.className = 'border border-gray-200 dark:border-gray-700 p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm transition-all hover:shadow-md';
-
+                    
                     const inputIdBase = `criterio_${criterio.id}`;
                     const cumpleId = `${inputIdBase}_true`;
                     const noCumpleId = `${inputIdBase}_false`;
-
+                    
                     div.innerHTML = `
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                             Condición #${criterio.numero_condicion}: ${criterio.descripcion}
@@ -1973,19 +1736,19 @@
                         <textarea name="observacion_${criterio.id}" rows="2" placeholder="Observación (opcional)" 
                             class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"></textarea>
                     `;
-
+                    
                     criteriosContainer.appendChild(div);
-
+                    
                     // Agregar listeners para actualizar el contador de criterios completados
                     const radioButtons = div.querySelectorAll('input[type="radio"]');
                     radioButtons.forEach(radio => {
                         radio.addEventListener('change', updateCriteriosCompletados);
                     });
                 });
-
+                
                 // Inicializar contador
                 updateCriteriosCompletados();
-
+                
             } catch (error) {
                 console.error(`Error al cargar criterios: ${error.message}`);
                 criteriosContainer.innerHTML = '<p class="text-red-600 dark:text-red-400 p-4">Error al cargar criterios.</p>';
@@ -1996,10 +1759,10 @@
 
         function updateCriteriosCompletados() {
             if (!criteriosCompletados) return;
-
+            
             const totalCriterios = criteriosData.length;
             let completados = 0;
-
+            
             criteriosData.forEach(criterio => {
                 const radioName = `criterio_${criterio.id}`;
                 const radios = document.querySelectorAll(`input[name="${radioName}"]:checked`);
@@ -2007,12 +1770,12 @@
                     completados++;
                 }
             });
-
+            
             criteriosCompletados.textContent = `${completados}/${totalCriterios}`;
-
+            
             // Cambiar color según el progreso
             const progressPercentage = (completados / totalCriterios) * 100;
-
+            
             if (progressPercentage === 100) {
                 criteriosCompletados.className = 'font-medium text-green-600 dark:text-green-400';
             } else if (progressPercentage > 50) {
@@ -2027,15 +1790,15 @@
         async function loadUsuariosParaFormulario() {
             if (!supervisorSelect || !cleanerSelect || !formMessage) return;
             if (usuariosData.length > 0 && supervisorSelect.options.length > 1) return;
-
+            
             supervisorSelect.innerHTML = '<option value="">Cargando...</option>';
             cleanerSelect.innerHTML = '<option value="">Cargando...</option>';
             supervisorSelect.disabled = true;
             cleanerSelect.disabled = true;
-
+            
             try {
                 const { data, error } = await supabaseClient.from('InspeccionICA_usuarios').select('id, nombre_completo, rol');
-
+                
                 if (error && error.message.includes('relation "InspeccionICA_usuarios" does not exist')) {
                     console.warn("Tabla Usuarios no encontrada.");
                     supervisorSelect.innerHTML = '<option value="">N/A</option>';
@@ -2045,13 +1808,13 @@
                 } else if (error) {
                     throw error;
                 }
-
+                
                 usuariosData = data;
                 supervisorSelect.innerHTML = '<option value="">Sin asignar</option>';
                 cleanerSelect.innerHTML = '<option value="">Sin asignar</option>';
                 supervisorSelect.disabled = false;
                 cleanerSelect.disabled = false;
-
+                
                 data.forEach(user => {
                     const option = new Option(`${user.nombre_completo} (${user.rol})`, user.id);
                     if (user.rol === 'Supervisor') supervisorSelect.appendChild(option.cloneNode(true));
@@ -2073,20 +1836,20 @@
         // --- Lógica Formulario Registro ---
         function handleRegistroSubmit(event) {
             event.preventDefault();
-
+            
             if (!registroForm || !submitButton || !formMessage || !supabaseClient || !terminalSelect) {
                 console.error("handleRegistroSubmit: Faltan elementos.");
                 return;
             }
-
+            
             submitButton.disabled = true;
             submitButton.innerHTML = `
                 <div class="animate-spin inline-block w-4 h-4 border-[2px] border-current border-t-transparent text-white rounded-full mr-2" role="status" aria-label="loading"></div>
                 Guardando...`;
             formMessage.textContent = '';
-
+            
             const formData = new FormData(registroForm);
-
+            
             // Validaciones
             if (!formData.get('terminal') || !formData.get('ppu') || !formData.get('fiscalizador') || !formData.get('registrador')) {
                 showErrorMessage(formMessage, 'Complete todos los campos requeridos.');
@@ -2094,7 +1857,7 @@
                 submitButton.innerHTML = 'Guardar Inspección';
                 return;
             }
-
+            
             // Validar que todos los criterios tengan una opción seleccionada
             let criteriosFaltantes = false;
             criteriosData.forEach(c => {
@@ -2102,14 +1865,14 @@
                     criteriosFaltantes = true;
                 }
             });
-
+            
             if (criteriosFaltantes) {
                 showErrorMessage(formMessage, 'Debe completar todos los criterios de inspección.');
                 submitButton.disabled = false;
                 submitButton.innerHTML = 'Guardar Inspección';
                 return;
             }
-
+            
             // Preparar datos para guardar
             const inspeccionData = {
                 bus_ppu: formData.get('ppu'),
@@ -2122,13 +1885,13 @@
                 cleaner_asignado_id: formData.get('cleaner') || null,
                 fecha_ultima_actualizacion_estado: new Date().toISOString()
             };
-
+            
             const detallesData = criteriosData.map(c => ({
                 criterio_id: c.id,
                 cumple: formData.get(`criterio_${c.id}`) === 'true',
                 observacion_criterio: formData.get(`observacion_${c.id}`) || null
             }));
-
+            
             (async () => {
                 try {
                     // Insertar inspección principal
@@ -2137,35 +1900,35 @@
                         .insert([inspeccionData])
                         .select('id')
                         .single();
-
+                    
                     if (iError) throw iError;
-
+                    
                     const newId = iResult.id;
-
+                    
                     // Insertar detalles
                     const detInsert = detallesData.map(d => ({ ...d, inspeccion_id: newId }));
                     const { error: dError } = await supabaseClient
                         .from('InspeccionICA_detalles_inspeccion')
                         .insert(detInsert);
-
+                    
                     if (dError) {
                         console.warn('Error al guardar detalles, borrando inspección...');
                         await supabaseClient.from('InspeccionICA_inspecciones').delete().eq('id', newId);
                         throw dError;
                     }
-
+                    
                     // Éxito - Mostrar mensaje y resetear formulario
                     showSuccessMessage(formMessage, '¡Inspección registrada correctamente!');
                     showNotification(`Inspección para el bus ${inspeccionData.bus_ppu} registrada exitosamente.`, 'success');
                     registroForm.reset();
-
+                    
                     // Actualizar vistas si corresponde
                     if (currentView === 'dashboard') loadDashboardData();
                     if (currentView === 'lista') loadInspecciones(getCurrentFilters());
-
+                    
                     // Reiniciar contador de criterios completados
                     updateCriteriosCompletados();
-
+                    
                 } catch (error) {
                     showErrorMessage(formMessage, `Error al guardar: ${error.message}`);
                     showNotification(`Error al guardar inspección: ${error.message}`, 'error');
@@ -2191,49 +1954,49 @@
                 console.error("loadInspecciones: Faltan elementos.");
                 return;
             }
-
+            
             currentPage = page;
-
+            
             showLoadingMessage(inspeccionesTbody, 'Cargando inspecciones...');
             listaErrorContainer.innerHTML = ''; // Limpiar errores previos
 
             try {
                 // Primero hacemos una consulta para contar el total de registros
                 let countQuery = supabaseClient.from('InspeccionICA_inspecciones').select('id', { count: 'exact' });
-
+                
                 // Aplicar filtros al conteo
                 if (filters.ppu) countQuery = countQuery.ilike('bus_ppu', `%${filters.ppu}%`);
                 if (filters.estado) countQuery = countQuery.eq('estado_general', filters.estado);
                 if (filters.terminal) countQuery = countQuery.eq('terminal_id', filters.terminal);
                 if (filters.fechaInicio) countQuery = countQuery.gte('fecha_hora_inspeccion', filters.fechaInicio + 'T00:00:00Z');
                 if (filters.fechaFin) countQuery = countQuery.lte('fecha_hora_inspeccion', filters.fechaFin + 'T23:59:59Z');
-
+                
                 const { count, error: countError } = await countQuery;
-
+                
                 if (countError) throw countError;
-
+                
                 // Calcular paginación
                 totalPages = Math.ceil(count / pageSize);
-
+                
                 // Actualizar información de paginación
                 if (paginationInfo && paginationStart && paginationEnd && paginationTotal) {
                     const start = (currentPage - 1) * pageSize + 1;
                     const end = Math.min(start + pageSize - 1, count);
-
+                    
                     paginationStart.textContent = start;
                     paginationEnd.textContent = end;
                     paginationTotal.textContent = count;
-
+                    
                     // Ocultar o mostrar según si hay resultados
                     paginationInfo.style.display = count > 0 ? 'block' : 'none';
                 }
-
+                
                 // Consulta para la página actual
                 let query = supabaseClient.from('InspeccionICA_inspecciones')
                     .select(`id, bus_ppu, fecha_hora_inspeccion, nombre_fiscalizador, estado_general, terminal:InspeccionICA_terminales(nombre)`)
                     .order('fecha_hora_inspeccion', { ascending: false })
                     .range((currentPage - 1) * pageSize, currentPage * pageSize - 1);
-
+                
                 // Aplicar filtros
                 if (filters.ppu) query = query.ilike('bus_ppu', `%${filters.ppu}%`);
                 if (filters.estado) query = query.eq('estado_general', filters.estado);
@@ -2242,9 +2005,9 @@
                 if (filters.fechaFin) query = query.lte('fecha_hora_inspeccion', filters.fechaFin + 'T23:59:59Z');
 
                 const { data, error } = await query;
-
+                
                 if (error) throw error;
-
+                
                 inspeccionesData = data;
                 inspeccionesTbody.innerHTML = ''; // Limpiar tabla
 
@@ -2259,7 +2022,7 @@
                                 <p class="text-sm">Pruebe a utilizar otros filtros o registre una nueva inspección.</p>
                             </td>
                         </tr>`;
-
+                    
                     // Actualizar botones de paginación
                     updatePaginationButtons(0);
                     return;
@@ -2269,7 +2032,7 @@
                     const tr = document.createElement('tr');
                     tr.className = 'hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors';
                     tr.setAttribute('data-inspeccion-id', inspeccion.id);
-
+                    
                     tr.innerHTML = `
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">${inspeccion.bus_ppu}</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${formatDate(inspeccion.fecha_hora_inspeccion)}</td>
@@ -2328,13 +2091,13 @@
                                 </div>
                             </div>
                         </td>`;
-
+                    
                     inspeccionesTbody.appendChild(tr);
                 });
 
                 // Actualizar botones de paginación
                 updatePaginationButtons(totalPages);
-
+                
             } catch (error) {
                 console.error(`Error al cargar inspecciones: ${error.message}`);
                 inspeccionesTbody.innerHTML = '';
@@ -2345,28 +2108,28 @@
 
         function updatePaginationButtons(pages) {
             if (!paginationButtons || !paginationPrev || !paginationNext) return;
-
+            
             paginationButtons.innerHTML = '';
-
+            
             // Desactivar o activar botones de anterior/siguiente
             paginationPrev.disabled = currentPage <= 1;
             paginationPrev.classList.toggle('opacity-50', currentPage <= 1);
             paginationNext.disabled = currentPage >= pages;
             paginationNext.classList.toggle('opacity-50', currentPage >= pages);
-
+            
             if (pages <= 1) {
                 // Si no hay páginas o solo hay una, no mostrar botones
                 return;
             }
-
+            
             // Determinar qué botones mostrar
             let startPage = Math.max(1, currentPage - 2);
             let endPage = Math.min(pages, startPage + 4);
-
+            
             if (endPage - startPage < 4) {
                 startPage = Math.max(1, endPage - 4);
             }
-
+            
             // Botón para la primera página
             if (startPage > 1) {
                 const button = document.createElement('button');
@@ -2374,7 +2137,7 @@
                 button.textContent = '1';
                 button.addEventListener('click', () => loadInspecciones(getCurrentFilters(), 1));
                 paginationButtons.appendChild(button);
-
+                
                 if (startPage > 2) {
                     const ellipsis = document.createElement('span');
                     ellipsis.className = 'relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200';
@@ -2382,7 +2145,7 @@
                     paginationButtons.appendChild(ellipsis);
                 }
             }
-
+            
             // Botones de páginas
             for (let i = startPage; i <= endPage; i++) {
                 const button = document.createElement('button');
@@ -2395,7 +2158,7 @@
                 button.addEventListener('click', () => loadInspecciones(getCurrentFilters(), i));
                 paginationButtons.appendChild(button);
             }
-
+            
             // Botón para la última página
             if (endPage < pages) {
                 if (endPage < pages - 1) {
@@ -2404,7 +2167,7 @@
                     ellipsis.textContent = '...';
                     paginationButtons.appendChild(ellipsis);
                 }
-
+                
                 const button = document.createElement('button');
                 button.className = 'relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors';
                 button.textContent = pages.toString();
@@ -2416,7 +2179,7 @@
         // Actualizar Estado desde la Tabla
         async function updateInspeccionStatus(inspeccionId, newStatus, statusCell) {
             if (!supabaseClient || !statusCell) return;
-
+            
             console.log(`Actualizando ${inspeccionId} a ${newStatus}`);
 
             const originalHTML = statusCell.innerHTML; // Guardar HTML original
@@ -2429,14 +2192,14 @@
             try {
                 const { data, error } = await supabaseClient
                     .from('InspeccionICA_inspecciones')
-                    .update({
-                        estado_general: newStatus,
-                        fecha_ultima_actualizacion_estado: new Date().toISOString()
+                    .update({ 
+                        estado_general: newStatus, 
+                        fecha_ultima_actualizacion_estado: new Date().toISOString() 
                     })
                     .eq('id', inspeccionId)
                     .select('estado_general, bus_ppu')
                     .single();
-
+                
                 if (error) throw error;
 
                 console.log(`Inspección ${inspeccionId} actualizada a ${data.estado_general}`);
@@ -2484,7 +2247,7 @@
                 console.error("handleApplyFilters: Faltan elementos.");
                 return;
             }
-
+            
             // Reiniciar a la página 1 al aplicar filtros
             currentPage = 1;
             loadInspecciones(getCurrentFilters(), 1);
@@ -2498,10 +2261,10 @@
                 console.error("openDetalleModal: Faltan elementos.");
                 return;
             }
-
+            
             showLoadingMessage(modalContent, 'Cargando detalles...');
             detalleModal.classList.remove('hidden'); // Mostrar modal
-
+            
             try {
                 const selectQuery = `*, 
                     terminal:InspeccionICA_terminales(nombre), 
@@ -2512,13 +2275,13 @@
                         observacion_criterio, 
                         InspeccionICA_criterios(descripcion, numero_condicion)
                     )`;
-
+                
                 const { data, error } = await supabaseClient
                     .from('InspeccionICA_inspecciones')
                     .select(selectQuery)
                     .eq('id', inspeccionId)
                     .single();
-
+                
                 if (error) throw error;
 
                 // Estructura mejorada del modal
@@ -2581,21 +2344,21 @@
                         <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-3">Detalles de Criterios (ICA A18)</h4>
                         <div class="space-y-3">`;
 
-                const detallesOrdenados = data.InspeccionICA_detalles_inspeccion.sort((a, b) =>
+                const detallesOrdenados = data.InspeccionICA_detalles_inspeccion.sort((a, b) => 
                     (a.InspeccionICA_criterios?.numero_condicion ?? 999) - (b.InspeccionICA_criterios?.numero_condicion ?? 999)
                 );
-
+                
                 if (detallesOrdenados.length === 0) {
                     modalHTML += '<p class="text-sm text-gray-500 dark:text-gray-400 p-4 text-center">No se encontraron detalles de criterios para esta inspección.</p>';
                 } else {
                     detallesOrdenados.forEach(detalle => {
                         const criterio = detalle.InspeccionICA_criterios;
                         const criterioDesc = criterio ? `Condición #${criterio.numero_condicion}: ${criterio.descripcion}` : 'Criterio no encontrado';
-                        const cumpleClass = detalle.cumple
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                        const cumpleClass = detalle.cumple 
+                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' 
                             : 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400';
                         const cumpleText = detalle.cumple ? 'Cumple' : 'No Cumple';
-
+                        
                         modalHTML += `
                             <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
                                 <div class="p-3 bg-gray-50 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700">
@@ -2607,18 +2370,18 @@
                                             ${cumpleText}
                                         </span>
                                     </div>
-                                    ${detalle.observacion_criterio ?
-                                `<div class="mt-2">
+                                    ${detalle.observacion_criterio ? 
+                                        `<div class="mt-2">
                                             <p class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Observación:</p>
                                             <p class="text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 p-2 rounded">${detalle.observacion_criterio}</p>
-                                        </div>`
-                                : ''
-                            }
+                                        </div>` 
+                                        : ''
+                                    }
                                 </div>
                             </div>`;
                     });
                 }
-
+                
                 modalHTML += `</div></section>`;
                 modalContent.innerHTML = modalHTML;
             } catch (error) {
@@ -2632,7 +2395,7 @@
                         <h4 class="text-lg font-semibold text-red-600 dark:text-red-400 mb-2">Error al cargar detalles</h4>
                         <p class="text-gray-600 dark:text-gray-400">${error.message}</p>
                     </div>`;
-
+                
                 console.error("Error al cargar detalles:", error);
             }
         }
@@ -2645,13 +2408,13 @@
                 console.error("loadDashboardData: Faltan elementos.");
                 return;
             }
-
+            
             // Mostrar placeholders de carga
             kpiHoy.innerHTML = '<div class="shimmer h-8 w-16 rounded"></div>';
             kpiPendientes.innerHTML = '<div class="shimmer h-8 w-16 rounded"></div>';
             kpiRevision.innerHTML = '<div class="shimmer h-8 w-16 rounded"></div>';
             kpiSolucionadas.innerHTML = '<div class="shimmer h-8 w-16 rounded"></div>';
-
+            
             const selectedTerminalId = dashboardFilterTerminalSelect.value;
             const selectedDateRange = dashboardDateRangeSelect?.value || 'all';
             const dateRange = calculateDateRange(selectedDateRange);
@@ -2661,19 +2424,19 @@
                 let query = supabaseClient
                     .from('InspeccionICA_inspecciones')
                     .select('id, fecha_hora_inspeccion, estado_general, terminal_id, terminal:InspeccionICA_terminales(nombre)');
-
+                
                 // Agregar filtros
                 if (selectedTerminalId) {
                     query = query.eq('terminal_id', selectedTerminalId);
                 }
-
+                
                 if (selectedDateRange !== 'all') {
                     query = query.gte('fecha_hora_inspeccion', dateRange.start);
                     query = query.lte('fecha_hora_inspeccion', dateRange.end);
                 }
-
+                
                 const { data, error } = await query;
-
+                
                 if (error) throw error;
 
                 const hoyStr = new Date().toISOString().split('T')[0];
@@ -2688,21 +2451,21 @@
                 kpiPendientes.textContent = pendientes;
                 kpiRevision.textContent = revision;
                 kpiSolucionadas.textContent = solucionadas;
-
+                
                 // Agregar indicadores de tendencia (ejemplo)
                 if (kpiHoyChange) kpiHoyChange.innerHTML = '<span class="text-xs px-1.5 py-0.5 rounded bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400">+12%</span>';
                 if (kpiPendientesBadge) {
                     if (pendientes > 0) {
                         kpiPendientesBadge.className = 'ml-2 text-xs font-medium px-2 py-1 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 relative badge-ping';
                         kpiPendientesBadge.textContent = 'Urgente';
-
+                        
                         // Agregar efecto de ping
                         kpiPendientesBadge.classList.add('badge-ping');
                         kpiPendientesBadge.classList.add('before:bg-red-500', 'before:dark:bg-red-400', 'before:opacity-30');
                     } else {
                         kpiPendientesBadge.className = 'ml-2 text-xs font-medium px-2 py-1 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400';
                         kpiPendientesBadge.textContent = 'Al día';
-
+                        
                         // Remover efecto de ping
                         kpiPendientesBadge.classList.remove('badge-ping');
                     }
@@ -2718,9 +2481,9 @@
                 if (inspeccionesChartInstance) {
                     inspeccionesChartInstance.destroy();
                 }
-
+                
                 const colorScheme = isDarkMode ? chartColors.dark : chartColors.light;
-
+                
                 inspeccionesChartInstance = new Chart(ctx, {
                     type: 'doughnut',
                     data: {
@@ -2750,7 +2513,7 @@
                             title: { display: false },
                             tooltip: {
                                 callbacks: {
-                                    label: function (c) {
+                                    label: function(c) {
                                         const porcentaje = Math.round((c.parsed / (pendientes + revision + solucionadas)) * 100) || 0;
                                         return `${c.label}: ${c.parsed} (${porcentaje}%)`;
                                     }
@@ -2760,7 +2523,7 @@
                         cutout: '60%'
                     }
                 });
-
+                
                 // Gráfico de tendencias
                 if (tendenciaCanvas) {
                     // Agrupar por fecha
@@ -2771,7 +2534,7 @@
                         'En Revisión': {},
                         'Solucionado': {}
                     };
-
+                    
                     // Obtener los últimos 7 días
                     for (let i = 6; i >= 0; i--) {
                         const date = new Date();
@@ -2779,12 +2542,12 @@
                         const formattedDate = date.toISOString().split('T')[0];
                         fechas.push(formattedDate);
                         fechasCounts[formattedDate] = 0;
-
+                        
                         Object.keys(estadosCounts).forEach(estado => {
                             estadosCounts[estado][formattedDate] = 0;
                         });
                     }
-
+                    
                     // Contar inspecciones por fecha y estado
                     data.forEach(ins => {
                         const fecha = ins.fecha_hora_inspeccion.split('T')[0];
@@ -2795,18 +2558,18 @@
                             }
                         }
                     });
-
+                    
                     // Preparar datos para el gráfico
                     const pendientesData = fechas.map(fecha => estadosCounts['Pendiente'][fecha]);
                     const revisionData = fechas.map(fecha => estadosCounts['En Revisión'][fecha]);
                     const solucionadasData = fechas.map(fecha => estadosCounts['Solucionado'][fecha]);
                     const totalesData = fechas.map(fecha => fechasCounts[fecha]);
-
+                    
                     // Crear gráfico de tendencias
                     if (tendenciaChartInstance) {
                         tendenciaChartInstance.destroy();
                     }
-
+                    
                     const ctxTendencia = tendenciaCanvas.getContext('2d');
                     tendenciaChartInstance = new Chart(ctxTendencia, {
                         type: 'line',
@@ -2907,13 +2670,13 @@
                         }
                     });
                 }
-
+                
                 // Gráfico de terminales
                 if (terminalesCanvas) {
                     // Agrupar por terminal
                     const terminalesCount = {};
                     let otrosCount = 0;
-
+                    
                     data.forEach(ins => {
                         const terminalNombre = ins.terminal?.nombre || 'Sin Terminal';
                         if (terminalesCount[terminalNombre]) {
@@ -2922,14 +2685,14 @@
                             terminalesCount[terminalNombre] = 1;
                         }
                     });
-
+                    
                     // Ordenar por cantidad
                     const sortedTerminales = Object.entries(terminalesCount)
                         .sort((a, b) => b[1] - a[1]);
-
+                    
                     // Limitar a mostrar solo los top 5, el resto agruparlo en "Otros"
                     const topTerminales = sortedTerminales.slice(0, 5);
-
+                    
                     if (sortedTerminales.length > 5) {
                         const otrosTerminales = sortedTerminales.slice(5);
                         otrosCount = otrosTerminales.reduce((sum, terminal) => sum + terminal[1], 0);
@@ -2937,19 +2700,19 @@
                             topTerminales.push(['Otros', otrosCount]);
                         }
                     }
-
+                    
                     // Crear gráfico de terminales
                     if (terminalesChartInstance) {
                         terminalesChartInstance.destroy();
                     }
-
+                    
                     const ctxTerminales = terminalesCanvas.getContext('2d');
                     const labels = topTerminales.map(t => t[0]);
                     const values = topTerminales.map(t => t[1]);
-
+                    
                     // Asignar colores
                     let backgroundColor = colorScheme.terminales.slice(0, labels.length);
-
+                    
                     // Si hay más terminales que colores, generar colores adicionales
                     if (labels.length > backgroundColor.length) {
                         const additionalColors = Array(labels.length - backgroundColor.length)
@@ -2957,7 +2720,7 @@
                             .map(() => getRandomColor());
                         backgroundColor = [...backgroundColor, ...additionalColors];
                     }
-
+                    
                     terminalesChartInstance = new Chart(ctxTerminales, {
                         type: 'polarArea',
                         data: {
@@ -2984,7 +2747,7 @@
                                 },
                                 tooltip: {
                                     callbacks: {
-                                        label: function (context) {
+                                        label: function(context) {
                                             const value = context.parsed;
                                             const total = context.dataset.data.reduce((a, b) => a + b, 0);
                                             const percentage = Math.round((value / total) * 100);
@@ -3011,20 +2774,20 @@
                         }
                     });
                 }
-
+                
                 // Cargar inspecciones recientes
                 loadRecentInspections();
-
+                
             } catch (error) {
                 console.error("Error al cargar datos del dashboard:", error);
-
+                
                 kpiHoy.textContent = 'Error';
                 kpiPendientes.textContent = 'Error';
                 kpiRevision.textContent = 'Error';
                 kpiSolucionadas.textContent = 'Error';
-
+                
                 showNotification(`Error al cargar datos del dashboard: ${error.message}`, 'error');
-
+                
                 const kpiContainer = document.getElementById('dashboard-kpis');
                 if (kpiContainer) {
                     kpiContainer.innerHTML += `
@@ -3032,25 +2795,25 @@
                             <p>Error al cargar KPIs: ${error.message}</p>
                         </div>`;
                 }
-
+                
                 if (inspeccionesChartInstance) {
                     inspeccionesChartInstance.destroy();
                 }
             }
         }
-
+        
         async function loadRecentInspections() {
             if (!recentInspections || !supabaseClient) return;
-
+            
             try {
                 const { data, error } = await supabaseClient
                     .from('InspeccionICA_inspecciones')
                     .select(`id, bus_ppu, fecha_hora_inspeccion, estado_general, terminal:InspeccionICA_terminales(nombre)`)
                     .order('fecha_hora_inspeccion', { ascending: false })
                     .limit(5);
-
+                
                 if (error) throw error;
-
+                
                 if (data.length === 0) {
                     recentInspections.innerHTML = `
                         <tr>
@@ -3060,13 +2823,13 @@
                         </tr>`;
                     return;
                 }
-
+                
                 recentInspections.innerHTML = '';
-
+                
                 data.forEach(ins => {
                     const tr = document.createElement('tr');
                     tr.className = 'hover:bg-gray-50 dark:hover:bg-gray-700/40';
-
+                    
                     tr.innerHTML = `
                         <td class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                             ${ins.bus_ppu}
@@ -3080,10 +2843,10 @@
                         <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                             ${formatShortDate(ins.fecha_hora_inspeccion)}
                         </td>`;
-
+                    
                     recentInspections.appendChild(tr);
                 });
-
+                
             } catch (error) {
                 console.error("Error al cargar inspecciones recientes:", error);
                 recentInspections.innerHTML = `
@@ -3100,45 +2863,45 @@
         // --- Lógica Reportes ---
         function initReportesView() {
             if (!reportePeriodoSelect || !fechasPersonalizadas) return;
-
+            
             // Inicializar eventos
             reportePeriodoSelect.addEventListener('change', () => {
                 const isPeriodoCustom = reportePeriodoSelect.value === 'custom';
                 fechasPersonalizadas.classList.toggle('hidden', !isPeriodoCustom);
             });
-
+            
             // Inicializar fechas personalizadas con valores por defecto
             const today = new Date();
             const oneWeekAgo = new Date(today);
             oneWeekAgo.setDate(today.getDate() - 7);
-
+            
             if (reporteFechaInicioInput) {
                 reporteFechaInicioInput.valueAsDate = oneWeekAgo;
             }
-
+            
             if (reporteFechaFinInput) {
                 reporteFechaFinInput.valueAsDate = today;
             }
-
+            
             // Evento para generar reporte
             if (generarReporteBtn) {
                 generarReporteBtn.addEventListener('click', generateReport);
             }
         }
-
+        
         async function generateReport() {
             if (!reporteTasaCumplimiento || !reporteTotal || !reporteTiempoPromedio || !supabaseClient) return;
-
+            
             const periodoValue = reportePeriodoSelect?.value || 'month';
             const terminalId = reporteTerminalSelect?.value || '';
             const tipoReporte = reporteTipoSelect?.value || 'general';
-
+            
             let fechaInicio, fechaFin;
-
+            
             if (periodoValue === 'custom') {
                 fechaInicio = reporteFechaInicioInput?.value || '';
                 fechaFin = reporteFechaFinInput?.value || '';
-
+                
                 if (!fechaInicio || !fechaFin) {
                     showNotification('Debe seleccionar fechas de inicio y fin para un periodo personalizado', 'warning');
                     return;
@@ -3148,17 +2911,17 @@
                 fechaInicio = dateRange.start.split('T')[0];
                 fechaFin = dateRange.end.split('T')[0];
             }
-
+            
             // Mostrar indicador de carga
             reporteTotal.innerHTML = '<div class="shimmer h-8 w-24 rounded"></div>';
             reporteTasaCumplimiento.innerHTML = '<div class="shimmer h-8 w-24 rounded"></div>';
             reporteTiempoPromedio.innerHTML = '<div class="shimmer h-8 w-24 rounded"></div>';
-
+            
             if (reporteTendenciaChartInstance) reporteTendenciaChartInstance.destroy();
             if (reporteCriteriosChartInstance) reporteCriteriosChartInstance.destroy();
-
+            
             showLoadingMessage(reporteCriteriosTbody, 'Generando reporte...');
-
+            
             try {
                 // Consulta para las inspecciones
                 let query = supabaseClient.from('InspeccionICA_inspecciones')
@@ -3182,23 +2945,23 @@
                     `)
                     .gte('fecha_hora_inspeccion', `${fechaInicio}T00:00:00Z`)
                     .lte('fecha_hora_inspeccion', `${fechaFin}T23:59:59Z`);
-
+                
                 if (terminalId) {
                     query = query.eq('terminal_id', terminalId);
                 }
-
+                
                 query = query.order('fecha_hora_inspeccion', { ascending: false });
-
+                
                 const { data, error } = await query;
-
+                
                 if (error) throw error;
-
+                
                 // Si no hay datos
                 if (data.length === 0) {
                     reporteTotal.textContent = '0';
                     reporteTasaCumplimiento.textContent = '0%';
                     reporteTiempoPromedio.textContent = 'N/A';
-
+                    
                     reporteCriteriosTbody.innerHTML = `
                         <tr>
                            <td colspan="4" class="px-4 py-6 text-center text-gray-500 dark:text-gray-400">
@@ -3214,34 +2977,34 @@
                                 </div>
                             </td>
                         </tr>`;
-
+                    
                     showNotification('No hay datos para generar el reporte con los filtros seleccionados', 'warning');
                     return;
                 }
-
+                
                 // Procesar datos para el reporte
                 const totalInspecciones = data.length;
                 let totalCriteriosEvaluados = 0;
                 let totalCriteriosCumplidos = 0;
-
+                
                 // Calcular tasa de cumplimiento
                 data.forEach(inspeccion => {
                     const detalles = inspeccion.InspeccionICA_detalles_inspeccion || [];
                     totalCriteriosEvaluados += detalles.length;
                     totalCriteriosCumplidos += detalles.filter(detalle => detalle.cumple).length;
                 });
-
-                const tasaCumplimiento = totalCriteriosEvaluados > 0
-                    ? Math.round((totalCriteriosCumplidos / totalCriteriosEvaluados) * 100)
+                
+                const tasaCumplimiento = totalCriteriosEvaluados > 0 
+                    ? Math.round((totalCriteriosCumplidos / totalCriteriosEvaluados) * 100) 
                     : 0;
-
+                
                 // Calcular tiempo promedio de resolución (para inspecciones solucionadas)
                 const inspeccionesSolucionadas = data.filter(ins => ins.estado_general === 'Solucionado');
                 let tiempoPromedioHoras = 'N/A';
-
+                
                 if (inspeccionesSolucionadas.length > 0) {
                     let sumaTiempos = 0;
-
+                    
                     inspeccionesSolucionadas.forEach(ins => {
                         const fechaInicio = new Date(ins.fecha_hora_inspeccion);
                         const fechaFin = new Date(ins.fecha_ultima_actualizacion_estado);
@@ -3249,15 +3012,15 @@
                         const diferenciaHoras = diferenciaMilisegundos / (1000 * 60 * 60);
                         sumaTiempos += diferenciaHoras;
                     });
-
+                    
                     tiempoPromedioHoras = Math.round(sumaTiempos / inspeccionesSolucionadas.length);
                 }
-
+                
                 // Actualizar KPIs del reporte
                 reporteTotal.textContent = totalInspecciones;
                 reporteTasaCumplimiento.textContent = `${tasaCumplimiento}%`;
                 reporteTiempoPromedio.textContent = tiempoPromedioHoras !== 'N/A' ? `${tiempoPromedioHoras}h` : 'N/A';
-
+                
                 // Datos para gráfico de tendencia temporal
                 const fechasUnicas = [...new Set(data.map(ins => ins.fecha_hora_inspeccion.split('T')[0]))].sort();
                 const estadosPorFecha = {
@@ -3265,40 +3028,40 @@
                     'En Revisión': {},
                     'Solucionado': {}
                 };
-
+                
                 fechasUnicas.forEach(fecha => {
                     Object.keys(estadosPorFecha).forEach(estado => {
                         estadosPorFecha[estado][fecha] = 0;
                     });
                 });
-
+                
                 data.forEach(ins => {
                     const fecha = ins.fecha_hora_inspeccion.split('T')[0];
                     if (estadosPorFecha[ins.estado_general] && estadosPorFecha[ins.estado_general][fecha] !== undefined) {
                         estadosPorFecha[ins.estado_general][fecha]++;
                     }
                 });
-
+                
                 // Datos para el gráfico de tendencia
                 const pendientesPorFecha = fechasUnicas.map(fecha => estadosPorFecha['Pendiente'][fecha] || 0);
                 const revisionPorFecha = fechasUnicas.map(fecha => estadosPorFecha['En Revisión'][fecha] || 0);
                 const solucionadosPorFecha = fechasUnicas.map(fecha => estadosPorFecha['Solucionado'][fecha] || 0);
-
+                
                 // Formatear fechas para mostrar (simplificar)
                 const fechasFormateadas = fechasUnicas.map(fecha => {
                     const partes = fecha.split('-');
                     return `${partes[2]}/${partes[1]}`;
                 });
-
+                
                 // Crear gráfico de tendencia
                 if (reporteTendenciaChart) {
                     const colorScheme = isDarkMode ? chartColors.dark : chartColors.light;
                     const ctx = reporteTendenciaChart.getContext('2d');
-
+                    
                     if (reporteTendenciaChartInstance) {
                         reporteTendenciaChartInstance.destroy();
                     }
-
+                    
                     reporteTendenciaChartInstance = new Chart(ctx, {
                         type: 'bar',
                         data: {
@@ -3370,21 +3133,21 @@
                         }
                     });
                 }
-
+                
                 // Análisis de criterios
                 const criteriosEvaluados = new Map();
-
+                
                 // Recopilar datos de todos los criterios
                 data.forEach(inspeccion => {
                     const detalles = inspeccion.InspeccionICA_detalles_inspeccion || [];
-
+                    
                     detalles.forEach(detalle => {
                         const criterio = detalle.InspeccionICA_criterios;
                         if (!criterio) return;
-
+                        
                         const criterioId = criterio.id;
                         const descripcion = `Condición #${criterio.numero_condicion}: ${criterio.descripcion}`;
-
+                        
                         if (!criteriosEvaluados.has(criterioId)) {
                             criteriosEvaluados.set(criterioId, {
                                 id: criterioId,
@@ -3395,37 +3158,37 @@
                                 porcentajeIncumplimiento: 0
                             });
                         }
-
+                        
                         const datosCriterio = criteriosEvaluados.get(criterioId);
                         datosCriterio.total++;
-
+                        
                         if (detalle.cumple) {
                             datosCriterio.cumple++;
                         } else {
                             datosCriterio.noCumple++;
                         }
-
+                        
                         // Recalcular porcentaje
                         datosCriterio.porcentajeIncumplimiento = Math.round((datosCriterio.noCumple / datosCriterio.total) * 100);
                     });
                 });
-
+                
                 // Convertir a array y ordenar por % de incumplimiento (de mayor a menor)
                 const criteriosOrdenados = Array.from(criteriosEvaluados.values())
                     .sort((a, b) => b.porcentajeIncumplimiento - a.porcentajeIncumplimiento);
-
+                
                 // Datos para gráfico de criterios
                 if (reporteCriteriosChart && criteriosOrdenados.length > 0) {
                     const colorScheme = isDarkMode ? chartColors.dark : chartColors.light;
                     const ctx = reporteCriteriosChart.getContext('2d');
-
+                    
                     // Limitar a los 5 criterios más críticos para la visualización
                     const topCriterios = criteriosOrdenados.slice(0, 5);
-
+                    
                     if (reporteCriteriosChartInstance) {
                         reporteCriteriosChartInstance.destroy();
                     }
-
+                    
                     reporteCriteriosChartInstance = new Chart(ctx, {
                         type: 'bar',
                         data: {
@@ -3463,7 +3226,7 @@
                                 },
                                 tooltip: {
                                     callbacks: {
-                                        label: function (context) {
+                                        label: function(context) {
                                             const value = context.raw;
                                             const datasetIndex = context.datasetIndex;
                                             const dataset = context.chart.data.datasets[datasetIndex];
@@ -3499,189 +3262,85 @@
                         }
                     });
                 }
-
+                
                 // Actualizar tabla de criterios
                 reporteCriteriosTbody.innerHTML = '';
-
+                
                 // Mostrar todos los criterios en la tabla
                 criteriosOrdenados.forEach(criterio => {
-                    const tendenciaIcon = criterio.porcentajeIncumplimiento > 30
+                    const tendenciaIcon = criterio.porcentajeIncumplimiento > 30 
                         ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 dark:text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 18 6-6 6 6"/><path d="M6 6h12"/></svg>`
-                        : (criterio.porcentajeIncumplimiento > 10
+                        : (criterio.porcentajeIncumplimiento > 10 
                             ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500 dark:text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>`
                             : `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 dark:text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 6 6 6-6"/><path d="M6 18h12"/></svg>`);
-
+                    
                     const tr = document.createElement('tr');
                     tr.className = 'hover:bg-gray-50 dark:hover:bg-gray-700/40 transition-colors';
-
+                    
                     tr.innerHTML = `
                         <td class="px-4 py-3 text-sm text-gray-900 dark:text-white">${criterio.descripcion}</td>
                         <td class="px-4 py-3 text-sm text-center text-gray-500 dark:text-gray-400 font-medium">${criterio.noCumple}</td>
                         <td class="px-4 py-3 text-sm text-center">
-                            <span class="px-2.5 py-0.5 rounded-full text-xs font-medium ${criterio.porcentajeIncumplimiento > 30
-                            ? 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400'
-                            : (criterio.porcentajeIncumplimiento > 10
-                                ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400'
-                                : 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400')}">
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-medium ${criterio.porcentajeIncumplimiento > 30 
+                                ? 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400' 
+                                : (criterio.porcentajeIncumplimiento > 10 
+                                    ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400' 
+                                    : 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400')}">
                                 ${criterio.porcentajeIncumplimiento}%
                             </span>
                         </td>
                         <td class="px-4 py-3 text-sm text-center text-gray-500 dark:text-gray-400">${tendenciaIcon}</td>
                     `;
-
+                    
                     reporteCriteriosTbody.appendChild(tr);
                 });
-
+                
                 showNotification('Reporte generado correctamente', 'success');
-
+                
             } catch (error) {
                 console.error("Error al generar reporte:", error);
-
+                
                 reporteTotal.textContent = 'Error';
                 reporteTasaCumplimiento.textContent = 'Error';
                 reporteTiempoPromedio.textContent = 'Error';
-
+                
                 reporteCriteriosTbody.innerHTML = `
                     <tr>
                         <td colspan="4" class="px-4 py-4 text-center text-red-500 dark:text-red-400">
                             Error al generar reporte: ${error.message}
                         </td>
                     </tr>`;
-
+                
                 showNotification(`Error al generar reporte: ${error.message}`, 'error');
             }
         }
         // --- FIN Reportes ---
-        /**
- * =========================================================================
- * 1. DEFINICIÓN DE LA FUNCIÓN (Colocar junto a otras definiciones de funciones)
- * =========================================================================
- * Carga las PPUs de los buses en el select correspondiente,
- * opcionalmente filtrando por el ID del terminal.
- * @param {string | null} [terminalId=null] - El ID del terminal para filtrar. Si es null o vacío, carga todos los buses.
- */
-        async function loadBusesParaFormulario(terminalId = null) {
-            // Verificar si los selectores están listos (asume que son variables globales o accesibles)
-            if (!ppuSelect || !ppuErrorContainer) {
-                console.warn("loadBusesParaFormulario: Selectores ppuSelect o ppuErrorContainer no listos.");
-                return;
-            }
-            // Verificar si el cliente Supabase está listo (asume que es una variable global o accesible)
-            if (!supabaseClient) {
-                console.error("loadBusesParaFormulario: supabaseClient no está inicializado.");
-                // Asume que showErrorMessage está definida globalmente o en un scope accesible
-                if (typeof showErrorMessage === 'function') {
-                    showErrorMessage(ppuErrorContainer, 'Error: No se pudo conectar a la base de datos.');
-                }
-                return;
-            }
-
-            // Mostrar estado de carga y deshabilitar
-            // Asume que showLoadingMessage está definida globalmente o en un scope accesible
-            if (typeof showLoadingMessage === 'function') {
-                showLoadingMessage(ppuErrorContainer, 'Cargando buses...');
-            }
-            ppuSelect.innerHTML = '<option value="">Cargando...</option>';
-            ppuSelect.disabled = true;
-
-            try {
-                // Construir la consulta base
-                let query = supabaseClient
-                    .from('InspeccionICA_buses')
-                    .select('ppu') // Seleccionar solo la PPU
-                    .order('ppu'); // Ordenar alfabéticamente
-
-                // Aplicar filtro de terminal SI se proporcionó un ID válido
-                if (terminalId && terminalId !== '') {
-                    console.log(`Filtrando buses por terminal ID: ${terminalId}`); // Log para depuración
-                    query = query.eq('terminal_id', terminalId);
-                } else {
-                    console.log("Cargando todos los buses (no se especificó terminal)."); // Log para depuración
-                    // Si no se selecciona terminal, podrías decidir cargar todos o ninguno.
-                    // Actualmente carga todos si terminalId es null o vacío.
-                    // Si prefieres que no cargue nada hasta seleccionar terminal, puedes añadir:
-                    // if (!terminalId || terminalId === '') {
-                    //     ppuSelect.innerHTML = '<option value="">Seleccione un terminal primero</option>';
-                    //     ppuErrorContainer.innerHTML = '';
-                    //     ppuSelect.disabled = true;
-                    //     return; // Salir de la función
-                    // }
-                }
-
-                // Ejecutar la consulta
-                const { data, error } = await query;
-
-                if (error) {
-                    // Lanzar error para que sea capturado por el bloque catch
-                    throw error;
-                }
-
-                // Procesar los resultados
-                // Asume que busesData es una variable global o accesible si necesitas guardar los datos
-                // busesData = data;
-                ppuSelect.innerHTML = ''; // Limpiar opciones existentes
-
-                if (data && data.length > 0) {
-                    // Añadir opción por defecto
-                    ppuSelect.innerHTML = '<option value="">Seleccione una PPU</option>';
-                    // Poblar con los buses filtrados
-                    data.forEach(bus => {
-                        ppuSelect.appendChild(new Option(bus.ppu, bus.ppu));
-                    });
-                    ppuErrorContainer.innerHTML = ''; // Limpiar mensaje de carga/error
-                    ppuSelect.disabled = false; // Habilitar select
-                } else {
-                    // No se encontraron buses para ese terminal o en general
-                    ppuSelect.innerHTML = `<option value="">No hay buses ${terminalId ? 'para este terminal' : 'registrados'}</option>`;
-                    ppuSelect.disabled = true; // Mantener deshabilitado si no hay opciones
-                    // Opcional: Mostrar mensaje en el contenedor de error
-                    if (typeof showErrorMessage === 'function') {
-                        showErrorMessage(ppuErrorContainer, `No se encontraron buses ${terminalId ? 'para este terminal' : 'registrados'}.`);
-                    }
-                }
-
-            } catch (error) {
-                // Manejo de errores de la consulta
-                console.error(`Error al cargar buses (Terminal ID: ${terminalId}): ${error.message}`);
-                ppuSelect.innerHTML = '<option value="">Error al cargar</option>';
-                ppuSelect.disabled = true;
-                // Mostrar error en el contenedor específico
-                if (typeof showErrorMessage === 'function') {
-                    showErrorMessage(ppuErrorContainer, `Error al cargar buses: ${error.message}`);
-                }
-            }
-        }
 
 
-        /**
-         * =========================================================================
-         * 2. BLOQUE DOMContentLoaded ACTUALIZADO (Reemplaza tu bloque existente con este)
-         * =========================================================================
-         */
+        // --- Inicialización y Event Listeners ---
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Asignar Selectores DOM ---
-            // (Usando tu lista de selectores)
+            // Asignar Selectores DOM
             views = {
                 dashboard: document.getElementById('dashboard-view'),
                 registrar: document.getElementById('registrar-view'),
                 lista: document.getElementById('lista-view'),
-                reportes: document.getElementById('reportes-view') // Asegúrate que este ID exista en tu HTML si lo usas
+                reportes: document.getElementById('reportes-view')
             };
-
+            
             navLinks = document.querySelectorAll('.nav-link');
             viewTitle = document.getElementById('view-title');
-
+            
             // Formulario de registro
             registroForm = document.getElementById('registro-form');
             ppuSelect = document.getElementById('ppu');
             ppuErrorContainer = document.getElementById('ppu-error-container');
-            terminalSelect = document.getElementById('terminal'); // Selector para el dropdown de terminal
+            terminalSelect = document.getElementById('terminal');
             terminalErrorContainer = document.getElementById('terminal-error-container');
             criteriosContainer = document.getElementById('criterios-container');
-            // criteriosCompletados = document.getElementById('criterios-completados'); // Comentado si no se usa aún
+            criteriosCompletados = document.getElementById('criterios-completados');
             formMessage = document.getElementById('form-message');
             submitButton = document.getElementById('submit-button');
-
+            
             // Lista de inspecciones
             inspeccionesTbody = document.getElementById('inspecciones-tbody');
             listaErrorContainer = document.getElementById('lista-error-container');
@@ -3691,242 +3350,264 @@
             filterFechaInicioInput = document.getElementById('filter-fecha-inicio');
             filterFechaFinInput = document.getElementById('filter-fecha-fin');
             applyFiltersButton = document.getElementById('apply-filters-button');
-            // exportButton = document.getElementById('export-button'); // Comentado si no se usa aún
-
+            exportButton = document.getElementById('export-button');
+            
             // Modal de detalles
             detalleModal = document.getElementById('detalle-modal');
             modalContent = document.getElementById('modal-content');
             closeModalButton = document.getElementById('close-modal-button');
             closeModalButtonBottom = document.getElementById('close-modal-button-bottom');
             printModalButton = document.getElementById('print-modal-button');
-
+            
             // Navegación y UI
             menuButton = document.getElementById('menu-button');
             sidebar = document.getElementById('sidebar');
             sidebarOverlay = document.getElementById('sidebar-overlay');
-            // themeToggleButton = document.getElementById('theme-toggle'); // Comentado si no se usa aún
-            // themeToggleText = document.getElementById('theme-toggle-text'); // Comentado si no se usa aún
-            // themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon'); // Comentado si no se usa aún
-            // themeToggleLightIcon = document.getElementById('theme-toggle-light-icon'); // Comentado si no se usa aún
-            // notificationButton = document.getElementById('notification-button'); // Comentado si no se usa aún
-            // notificationCount = document.getElementById('notification-count'); // Comentado si no se usa aún
-            // alertsContainer = document.getElementById('alerts-container'); // Comentado si no se usa aún
-            // quickRegisterButton = document.getElementById('quick-register-button'); // Comentado si no se usa aún
-
+            themeToggleButton = document.getElementById('theme-toggle');
+            themeToggleText = document.getElementById('theme-toggle-text');
+            themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+            notificationButton = document.getElementById('notification-button');
+            notificationCount = document.getElementById('notification-count');
+            alertsContainer = document.getElementById('alerts-container');
+            quickRegisterButton = document.getElementById('quick-register-button');
+            
             // Asignaciones y usuarios
             supervisorSelect = document.getElementById('supervisor');
             cleanerSelect = document.getElementById('cleaner');
-
+            
             // Dashboard
             kpiHoy = document.getElementById('kpi-hoy');
             kpiPendientes = document.getElementById('kpi-pendientes');
             kpiRevision = document.getElementById('kpi-revision');
             kpiSolucionadas = document.getElementById('kpi-solucionadas');
-            // kpiHoyChange = document.getElementById('kpi-hoy-change'); // Comentado si no se usa aún
-            // kpiPendientesBadge = document.getElementById('kpi-pendientes-badge'); // Comentado si no se usa aún
-            // kpiRevisionChange = document.getElementById('kpi-revision-change'); // Comentado si no se usa aún
-            // kpiSolucionadasChange = document.getElementById('kpi-solucionadas-change'); // Comentado si no se usa aún
+            kpiHoyChange = document.getElementById('kpi-hoy-change');
+            kpiPendientesBadge = document.getElementById('kpi-pendientes-badge');
+            kpiRevisionChange = document.getElementById('kpi-revision-change');
+            kpiSolucionadasChange = document.getElementById('kpi-solucionadas-change');
             chartCanvas = document.getElementById('inspeccionesChart');
-            // tendenciaCanvas = document.getElementById('tendenciaChart'); // Comentado si no se usa aún
-            // terminalesCanvas = document.getElementById('terminalesChart'); // Comentado si no se usa aún
+            tendenciaCanvas = document.getElementById('tendenciaChart');
+            terminalesCanvas = document.getElementById('terminalesChart');
             dashboardFilterTerminalSelect = document.getElementById('dashboard-filter-terminal');
-            // dashboardDateRangeSelect = document.getElementById('dashboard-date-range'); // Comentado si no se usa aún
-            // recentInspections = document.getElementById('recent-inspections'); // Comentado si no se usa aún
+            dashboardDateRangeSelect = document.getElementById('dashboard-date-range');
+            recentInspections = document.getElementById('recent-inspections');
+            
+            // Paginación
+            paginationInfo = document.getElementById('pagination-info');
+            paginationStart = document.getElementById('pagination-start');
+            paginationEnd = document.getElementById('pagination-end');
+            paginationTotal = document.getElementById('pagination-total');
+            paginationPrev = document.getElementById('pagination-prev');
+            paginationNext = document.getElementById('pagination-next');
+            paginationButtons = document.getElementById('pagination-buttons');
+            
+            // Reportes
+            reporteTerminalSelect = document.getElementById('reporte-terminal');
+            reportePeriodoSelect = document.getElementById('reporte-periodo');
+            reporteTipoSelect = document.getElementById('reporte-tipo');
+            reporteFechaInicioInput = document.getElementById('reporte-fecha-inicio');
+            reporteFechaFinInput = document.getElementById('reporte-fecha-fin');
+            fechasPersonalizadas = document.getElementById('fechas-personalizadas');
+            generarReporteBtn = document.getElementById('generar-reporte-btn');
+            exportarReporteBtn = document.getElementById('exportar-reporte-btn');
+            imprimirReporteBtn = document.getElementById('imprimir-reporte-btn');
+            reporteTendenciaChart = document.getElementById('reporte-tendencia-chart');
+            reporteCriteriosChart = document.getElementById('reporte-criterios-chart');
+            reporteTotal = document.getElementById('reporte-total');
+            reporteTasaCumplimiento = document.getElementById('reporte-tasa-cumplimiento');
+            reporteTiempoPromedio = document.getElementById('reporte-tiempo-promedio');
+            reporteCriteriosTbody = document.getElementById('reporte-criterios-tbody');
 
-            // Paginación (Comentado si no se usa aún)
-            // paginationInfo = document.getElementById('pagination-info');
-            // paginationStart = document.getElementById('pagination-start');
-            // paginationEnd = document.getElementById('pagination-end');
-            // paginationTotal = document.getElementById('pagination-total');
-            // paginationPrev = document.getElementById('pagination-prev');
-            // paginationNext = document.getElementById('pagination-next');
-            // paginationButtons = document.getElementById('pagination-buttons');
-
-            // Reportes (Comentado si no se usa aún)
-            // reporteTerminalSelect = document.getElementById('reporte-terminal');
-            // reportePeriodoSelect = document.getElementById('reporte-periodo');
-            // reporteTipoSelect = document.getElementById('reporte-tipo');
-            // reporteFechaInicioInput = document.getElementById('reporte-fecha-inicio');
-            // reporteFechaFinInput = document.getElementById('reporte-fecha-fin');
-            // fechasPersonalizadas = document.getElementById('fechas-personalizadas');
-            // generarReporteBtn = document.getElementById('generar-reporte-btn');
-            // exportarReporteBtn = document.getElementById('exportar-reporte-btn');
-            // imprimirReporteBtn = document.getElementById('imprimir-reporte-btn');
-            // reporteTendenciaChart = document.getElementById('reporte-tendencia-chart');
-            // reporteCriteriosChart = document.getElementById('reporte-criterios-chart');
-            // reporteTotal = document.getElementById('reporte-total');
-            // reporteTasaCumplimiento = document.getElementById('reporte-tasa-cumplimiento');
-            // reporteTiempoPromedio = document.getElementById('reporte-tiempo-promedio');
-            // reporteCriteriosTbody = document.getElementById('reporte-criterios-tbody');
-
-            // --- Configuración Supabase ---
+            // Configuración Supabase
             const SUPABASE_URL = 'https://tcmtxvuucjttngcazgff.supabase.co';
             const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjbXR4dnV1Y2p0dG5nY2F6Z2ZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA3MjUwMDEsImV4cCI6MjA1NjMwMTAwMX0.2WcIjMUEhSM6j9kYpbsYArQocZdHx86k7wXk-NyjIs0';
-
+            
             if (SUPABASE_URL.includes('TU_SUPABASE_URL') || SUPABASE_ANON_KEY.includes('TU_SUPABASE_ANON_KEY')) {
-                // Asume que showNotification existe
-                if (typeof showNotification === 'function') {
-                    showNotification('ERROR: Configura las credenciales de Supabase', 'error');
-                } else {
-                    alert('ERROR: Configura las credenciales de Supabase');
-                }
+                showNotification('ERROR: Configura las credenciales de Supabase', 'error');
                 return;
             }
 
             try {
-                // Inicializar cliente Supabase (asumiendo que la librería global 'supabase' existe)
                 if (typeof supabase !== 'undefined' && supabase.createClient) {
                     supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
                     console.log("Supabase client inicializado.");
 
-                    // --- Añadir Event Listeners ---
-                    // Navegación Principal
+                    // Añadir Event Listeners (solo una vez)
                     if (navLinks) {
                         navLinks.forEach(link => {
                             link.addEventListener('click', (e) => {
                                 e.preventDefault();
                                 const viewId = link.getAttribute('data-view');
-                                // Marcar activo
-                                navLinks.forEach(l => l.classList.remove('bg-gray-700', 'dark:bg-gray-700'));
-                                link.classList.add('bg-gray-700', 'dark:bg-gray-700');
-                                showView(viewId); // Asume que showView está definida
+                                showView(viewId);
                             });
                         });
                     }
-
-                    // Formulario de Registro
+                    
                     if (registroForm) {
-                        // Asume que handleRegistroSubmit está definida
                         registroForm.addEventListener('submit', handleRegistroSubmit);
                     }
-
-                    // ***** INICIO: Listener para filtro PPU por Terminal *****
-                    if (terminalSelect) {
-                        terminalSelect.addEventListener('change', (event) => {
-                            const selectedTerminalId = event.target.value;
-                            console.log(`Terminal seleccionado: ${selectedTerminalId}. Recargando PPUs...`);
-                            // Llamar a la función para recargar las PPUs
-                            // Asegurarse que loadBusesParaFormulario está definida
-                            if (typeof loadBusesParaFormulario === 'function') {
-                                loadBusesParaFormulario(selectedTerminalId);
-                            } else {
-                                console.error("La función loadBusesParaFormulario no está definida.");
-                                // Podrías mostrar un error al usuario aquí
-                            }
-                        });
-                        console.log("Event listener para filtro PPU por Terminal añadido.");
-                    } else {
-                        console.error("No se pudo añadir listener de filtro PPU: terminalSelect no encontrado.");
-                    }
-                    // ***** FIN: Listener para filtro PPU por Terminal *****
-
-                    // Botón Aplicar Filtros (Lista)
+                    
                     if (applyFiltersButton) {
-                        // Asume que handleApplyFilters está definida
                         applyFiltersButton.addEventListener('click', handleApplyFilters);
                     }
+                    
+                    if (closeModalButton) {
+                        closeModalButton.addEventListener('click', () => detalleModal.classList.add('hidden'));
+                    }
+                    
+                    if (closeModalButtonBottom) {
+                        closeModalButtonBottom.addEventListener('click', () => detalleModal.classList.add('hidden'));
+                    }
+                    
+                    if (detalleModal) {
+                        detalleModal.addEventListener('click', (event) => {
+                            if (event.target === detalleModal) {
+                                detalleModal.classList.add('hidden');
+                            }
+                        });
+                    }
+                    
+                    if (printModalButton) {
+                        printModalButton.addEventListener('click', () => {
+                            window.print();
+                        });
+                    }
+                    
+                    if (menuButton) {
+                        menuButton.addEventListener('click', () => {
+                            sidebar.classList.toggle('open');
+                            sidebarOverlay.classList.toggle('hidden');
+                        });
+                    }
+                    
+                    if (sidebarOverlay) {
+                        sidebarOverlay.addEventListener('click', () => {
+                            sidebar.classList.remove('open');
+                            sidebarOverlay.classList.add('hidden');
+                        });
+                    }
+                    
+                    if (themeToggleButton) {
+                        themeToggleButton.addEventListener('click', toggleDarkMode);
+                    }
+                    
+                    if (notificationButton) {
+                        notificationButton.addEventListener('click', () => {
+                            resetNotificationCount();
+                        });
+                    }
+                    
+                    if (quickRegisterButton) {
+                        quickRegisterButton.addEventListener('click', () => {
+                            showView('registrar');
+                        });
+                    }
+                    
+                    if (paginationPrev) {
+                        paginationPrev.addEventListener('click', () => {
+                            if (currentPage > 1) {
+                                loadInspecciones(getCurrentFilters(), currentPage - 1);
+                            }
+                        });
+                    }
+                    
+                    if (paginationNext) {
+                        paginationNext.addEventListener('click', () => {
+                            if (currentPage < totalPages) {
+                                loadInspecciones(getCurrentFilters(), currentPage + 1);
+                            }
+                        });
+                    }
+                    
+                    if (exportButton) {
+                        exportButton.addEventListener('click', () => {
+                            showNotification('Exportación iniciada. El archivo se descargará en breve.', 'info');
+                            // Lógica de exportación (pendiente de implementar)
+                        });
+                    }
+                    
+                    if (exportarReporteBtn) {
+                        exportarReporteBtn.addEventListener('click', () => {
+                            showNotification('Exportación del reporte iniciada. El archivo se descargará en breve.', 'info');
+                            // Lógica de exportación de reporte (pendiente de implementar)
+                        });
+                    }
+                    
+                    if (imprimirReporteBtn) {
+                        imprimirReporteBtn.addEventListener('click', () => {
+                            window.print();
+                        });
+                    }
 
-                    // Modal: Botones de cierre y click fuera
-                    if (closeModalButton) closeModalButton.addEventListener('click', () => detalleModal.classList.add('hidden'));
-                    if (closeModalButtonBottom) closeModalButtonBottom.addEventListener('click', () => detalleModal.classList.add('hidden'));
-                    if (detalleModal) detalleModal.addEventListener('click', (event) => { if (event.target === detalleModal) { detalleModal.classList.add('hidden'); } });
-
-                    // Modal: Botón Imprimir
-                    if (printModalButton) printModalButton.addEventListener('click', () => { window.print(); });
-
-                    // Sidebar Móvil
-                    if (menuButton) menuButton.addEventListener('click', () => { sidebar.classList.toggle('open'); sidebarOverlay.classList.toggle('hidden'); });
-                    if (sidebarOverlay) sidebarOverlay.addEventListener('click', () => { sidebar.classList.remove('open'); sidebarOverlay.classList.add('hidden'); });
-
-                    // Listener Delegado para la tabla de inspecciones (para botones Ver y Estado)
+                    // Listener Delegado para la tabla de inspecciones
                     if (inspeccionesTbody) {
                         inspeccionesTbody.addEventListener('click', (event) => {
                             // Botón Ver Detalles
-                            const viewButton = event.target.closest('.view-details-button');
-                            if (viewButton) {
-                                const id = viewButton.getAttribute('data-id');
-                                // Asume que openDetalleModal está definida
+                            if (event.target.closest('.view-details-button')) {
+                                const button = event.target.closest('.view-details-button');
+                                const id = button.getAttribute('data-id');
                                 openDetalleModal(id);
                             }
-
+                            
                             // Enlace Cambiar Estado
-                            const statusLink = event.target.closest('.status-change-link');
-                            if (statusLink) {
+                            if (event.target.closest('.status-change-link')) {
                                 event.preventDefault();
-                                const id = statusLink.getAttribute('data-id');
-                                const newStatus = statusLink.getAttribute('data-status');
-                                const statusCell = statusLink.closest('tr')?.querySelector('.status-cell');
-
+                                const link = event.target.closest('.status-change-link');
+                                const id = link.getAttribute('data-id');
+                                const newStatus = link.getAttribute('data-status');
+                                const statusCell = link.closest('tr')?.querySelector('.status-cell');
+                                
                                 if (statusCell) {
-                                    // Asume que updateInspeccionStatus está definida
                                     updateInspeccionStatus(id, newStatus, statusCell);
                                 }
-
-                                // Opcional: cerrar el dropdown
-                                const dropdownOptions = statusLink.closest('.status-options');
+                                
+                                // Opcional: cerrar el dropdown después de click
+                                const dropdownOptions = link.closest('.status-options');
                                 if (dropdownOptions) {
                                     dropdownOptions.style.display = 'none';
-                                    setTimeout(() => { if (dropdownOptions) dropdownOptions.style.display = ''; }, 100);
+                                    setTimeout(() => {
+                                        if (dropdownOptions) dropdownOptions.style.display = '';
+                                    }, 100);
                                 }
                             }
                         });
                     }
 
-                    // Añadir listeners para otros elementos si existen (theme, notificaciones, paginación, exportación, etc.)
-                    // ... (aquí irían los listeners para los elementos comentados si los descomentas y usas) ...
-                    if (themeToggleButton) {
-                        // Asume que toggleDarkMode está definida
-                        themeToggleButton.addEventListener('click', toggleDarkMode);
-                        // Inicializar tema basado en preferencia/localStorage
-                        // initDarkMode();
+                    // Verificar preferencia de tema oscuro
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        toggleDarkMode();
                     }
-                    if (dashboardDateRangeSelect) {
-                        dashboardDateRangeSelect.addEventListener('change', () => loadDashboardData());
-                    }
-                    if (generarReporteBtn) {
-                        // Asume que generarReporte está definida
-                        generarReporteBtn.addEventListener('click', generarReporte);
-                    }
-                    // ... otros listeners ...
 
-                    // Marcar dashboard activo y cargar datos iniciales
-                    const initialLink = document.querySelector('.nav-link[data-view="dashboard"]');
-                    if (initialLink) initialLink.classList.add('bg-gray-700', 'dark:bg-gray-700');
-                    // Asume que loadInitialData está definida
+                    // Inicializar vistas y cargar datos iniciales
                     loadInitialData();
 
                 } else {
-                    throw new Error("Librería Supabase (supabase-js) no cargó correctamente.");
+                    throw new Error("Librería Supabase (supabase-js) no cargó.");
                 }
             } catch (error) {
-                console.error("Error durante la inicialización:", error);
-                // Asume que showNotification existe
-                if (typeof showNotification === 'function') {
-                    showNotification(`Error crítico: ${error.message}`, 'error');
-                } else {
-                    alert(`Error crítico: ${error.message}`);
-                }
-
+                console.error("Error de inicialización:", error);
+                showNotification(`Error crítico: ${error.message}`, 'error');
+                
                 // Mostrar error en UI
                 const mainContent = document.querySelector('main .overflow-y-auto');
                 if (mainContent) {
                     mainContent.innerHTML = `
-                <div class="m-4 p-6 bg-red-100 dark:bg-red-900/30 border-l-4 border-red-500 text-red-800 dark:text-red-400 rounded-lg">
-                    <div class="flex items-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
-                        </svg>
-                        <h3 class="text-lg font-semibold">Error Crítico de Inicialización</h3>
-                    </div>
-                    <p class="ml-8">${error.message}</p>
-                    <p class="mt-3 ml-8 text-sm">Por favor, revise la consola y la configuración. Recargue la página.</p>
-                </div>`;
+                        <div class="m-4 p-6 bg-red-100 dark:bg-red-900/30 border-l-4 border-red-500 text-red-800 dark:text-red-400 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="8" x2="12" y2="12" />
+                                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                                </svg>
+                                <h3 class="text-lg font-semibold">Error Crítico</h3>
+                            </div>
+                            <p class="ml-8">${error.message}</p>
+                            <p class="mt-3 ml-8 text-sm">Por favor, revise la configuración de Supabase y recargue la página.</p>
+                        </div>`;
                 }
             }
-        }); // Fin de DOMContentLoaded
-
+        });
     </script>
 
 </body>
-
 </html>
