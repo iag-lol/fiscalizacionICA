@@ -958,7 +958,7 @@
                                 </svg>
                                 Aplicar Filtros
                             </button>
-                            <button id="export-button"
+                            <button id="export-button" type="button"
                                 class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1224,7 +1224,7 @@
 
                         <!-- Opciones de Exportación -->
                         <div class="flex justify-end mt-6">
-                            <button id="exportar-reporte-btn"
+                            <button id="exportar-reporte-btn" type="button"
                                 class="inline-flex items-center px-4 py-2 ml-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1325,6 +1325,9 @@
         let supabaseClient = null;
         let isDarkMode = false;
         let lastNotificationId = 0;
+        let reporteDatosCache = [];
+        let reporteResumenCache = null;
+        let reporteCriteriosCache = [];
         let notificationsCount = 0;
         let currentPage = 1;
         let pageSize = 10;
@@ -1555,6 +1558,122 @@
                 console.warn("Error formatting short date:", dateString, error);
                 return dateString;
             }
+        }
+
+        function applyInspeccionesFiltersToQuery(query, filters = {}) {
+            if (!query) return query;
+            let q = query;
+
+            if (filters.ppu) q = q.ilike('bus_ppu', `%${filters.ppu}%`);
+            if (filters.estado) q = q.eq('estado_general', filters.estado);
+            if (filters.terminal) q = q.eq('terminal_id', filters.terminal);
+            if (filters.fechaInicio) q = q.gte('fecha_hora_inspeccion', `${filters.fechaInicio}T00:00:00Z`);
+            if (filters.fechaFin) q = q.lte('fecha_hora_inspeccion', `${filters.fechaFin}T23:59:59Z`);
+
+            return q;
+        }
+
+        function escapeXml(value) {
+            return value
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&apos;');
+        }
+
+        function normaliseExcelValue(value) {
+            if (value === null || value === undefined) return '';
+            if (typeof value === 'number' && Number.isFinite(value)) return value;
+            if (value instanceof Date) return value.toISOString();
+            return String(value);
+        }
+
+        function createWorksheetXml(name, rows = []) {
+            const safeName = escapeXml((name || 'Hoja').substring(0, 31) || 'Hoja');
+            const tableRows = rows.map(row => {
+                const cells = row.map(cell => {
+                    const normalised = normaliseExcelValue(cell);
+                    const isNumber = typeof normalised === 'number';
+                    const cellValue = isNumber ? normalised : escapeXml(String(normalised));
+                    const dataType = isNumber ? 'Number' : 'String';
+                    return `<Cell><Data ss:Type="${dataType}">${cellValue}</Data></Cell>`;
+                }).join('');
+                return `<Row>${cells}</Row>`;
+            }).join('');
+            return `<Worksheet ss:Name="${safeName}"><Table>${tableRows}</Table></Worksheet>`;
+        }
+
+        function buildWorkbookXml(sheets = []) {
+            const header = `<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">`;
+            const body = sheets.map(({ name, rows }) => createWorksheetXml(name, rows)).join('');
+            return `${header}${body}</Workbook>`;
+        }
+
+        function downloadWorkbook(filename, sheets) {
+            const xml = buildWorkbookXml(sheets);
+            const dataUri = 'data:application/vnd.ms-excel;charset=utf-8,' + encodeURIComponent(xml);
+            const safeName = filename || 'reporte.xls';
+            const link = document.createElement('a');
+            link.href = dataUri;
+            link.target = '_blank';
+            if ('download' in link) {
+                link.download = safeName;
+            }
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            if (!('download' in HTMLAnchorElement.prototype)) {
+                window.open(dataUri, '_blank');
+            }
+        }
+
+        function buildFiltersSummaryRows(filters = {}) {
+            const terminalValor = (() => {
+                if (!filters.terminal) return 'Todos';
+                const terminalEncontrado = terminalesData.find(t => String(t.id) === String(filters.terminal));
+                return terminalEncontrado ? terminalEncontrado.nombre : filters.terminal;
+            })();
+
+            return [
+                ['Filtro', 'Valor'],
+                ['PPU', filters.ppu || 'Todos'],
+                ['Terminal', terminalValor],
+                ['Estado', filters.estado || 'Todos'],
+                ['Fecha desde', filters.fechaInicio || 'Sin filtro'],
+                ['Fecha hasta', filters.fechaFin || 'Sin filtro']
+            ];
+        }
+
+        function getReportePeriodoLabel(periodo) {
+            switch (periodo) {
+                case 'week': return 'Esta semana';
+                case 'month': return 'Este mes';
+                case 'quarter': return 'Este trimestre';
+                case 'year': return 'Este año';
+                case 'custom': return 'Personalizado';
+                default: return periodo || 'Sin especificar';
+            }
+        }
+
+        function getReporteTipoLabel(tipo) {
+            switch (tipo) {
+                case 'general': return 'General';
+                case 'terminal': return 'Por terminal';
+                case 'criteria': return 'Por criterio';
+                default: return tipo || 'General';
+            }
+        }
+
+        function sanitizeFilename(value) {
+            return (value || '').toString().replace(/[^a-zA-Z0-9-_\.]/g, '_');
         }
 
         function getStatusBadge(status) {
@@ -2202,11 +2321,7 @@
                 let countQuery = supabaseClient.from('InspeccionICA_inspecciones').select('id', { count: 'exact' });
 
                 // Aplicar filtros al conteo
-                if (filters.ppu) countQuery = countQuery.ilike('bus_ppu', `%${filters.ppu}%`);
-                if (filters.estado) countQuery = countQuery.eq('estado_general', filters.estado);
-                if (filters.terminal) countQuery = countQuery.eq('terminal_id', filters.terminal);
-                if (filters.fechaInicio) countQuery = countQuery.gte('fecha_hora_inspeccion', filters.fechaInicio + 'T00:00:00Z');
-                if (filters.fechaFin) countQuery = countQuery.lte('fecha_hora_inspeccion', filters.fechaFin + 'T23:59:59Z');
+                countQuery = applyInspeccionesFiltersToQuery(countQuery, filters);
 
                 const { count, error: countError } = await countQuery;
 
@@ -2235,11 +2350,7 @@
                     .range((currentPage - 1) * pageSize, currentPage * pageSize - 1);
 
                 // Aplicar filtros
-                if (filters.ppu) query = query.ilike('bus_ppu', `%${filters.ppu}%`);
-                if (filters.estado) query = query.eq('estado_general', filters.estado);
-                if (filters.terminal) query = query.eq('terminal_id', filters.terminal);
-                if (filters.fechaInicio) query = query.gte('fecha_hora_inspeccion', filters.fechaInicio + 'T00:00:00Z');
-                if (filters.fechaFin) query = query.lte('fecha_hora_inspeccion', filters.fechaFin + 'T23:59:59Z');
+                query = applyInspeccionesFiltersToQuery(query, filters);
 
                 const { data, error } = await query;
 
@@ -2475,6 +2586,86 @@
                 fechaFin: filterFechaFinInput?.value || '',
             };
         }
+
+        async function fetchInspeccionesForExport(filters = {}) {
+            if (!supabaseClient) throw new Error('Supabase no está inicializado');
+
+            const pageSizeExport = 1000;
+            let from = 0;
+            let to = pageSizeExport - 1;
+            const allData = [];
+            let keepFetching = true;
+
+            while (keepFetching) {
+                let query = supabaseClient
+                    .from('InspeccionICA_inspecciones')
+                    .select(`id, bus_ppu, fecha_hora_inspeccion, fecha_ultima_actualizacion_estado, nombre_fiscalizador, nombre_registrador, estado_general, observaciones_generales, terminal:InspeccionICA_terminales(nombre), supervisor:InspeccionICA_usuarios!InspeccionICA_inspecciones_supervisor_asignado_id_fkey(nombre_completo), cleaner:InspeccionICA_usuarios!InspeccionICA_inspecciones_cleaner_asignado_id_fkey(nombre_completo)`)
+                    .order('fecha_hora_inspeccion', { ascending: false })
+                    .range(from, to);
+
+                query = applyInspeccionesFiltersToQuery(query, filters);
+
+                const { data, error } = await query;
+                if (error) throw error;
+
+                if (Array.isArray(data)) {
+                    allData.push(...data);
+                }
+
+                if (!data || data.length < pageSizeExport) {
+                    keepFetching = false;
+                } else {
+                    from += pageSizeExport;
+                    to += pageSizeExport;
+                }
+            }
+
+            return allData;
+        }
+
+        async function exportInspeccionesToExcel() {
+            try {
+                const filters = getCurrentFilters();
+                showNotification('Generando archivo de inspecciones...', 'info', 4000);
+                const exportData = await fetchInspeccionesForExport(filters);
+
+                if (!exportData || exportData.length === 0) {
+                    showNotification('No hay inspecciones para exportar con los filtros seleccionados.', 'warning');
+                    return;
+                }
+
+                const headerRow = ['#', 'PPU', 'Fecha de inspección', 'Terminal', 'Fiscalizador', 'Registrador', 'Estado', 'Última actualización', 'Supervisor asignado', 'Cleaner asignado', 'Observaciones generales'];
+                const dataRows = exportData.map((item, index) => ([
+                    index + 1,
+                    item.bus_ppu || '',
+                    item.fecha_hora_inspeccion ? formatDate(item.fecha_hora_inspeccion) : '',
+                    item.terminal?.nombre || '',
+                    item.nombre_fiscalizador || '',
+                    item.nombre_registrador || '',
+                    item.estado_general || '',
+                    item.fecha_ultima_actualizacion_estado ? formatDate(item.fecha_ultima_actualizacion_estado) : '',
+                    item.supervisor?.nombre_completo || 'No asignado',
+                    item.cleaner?.nombre_completo || 'No asignado',
+                    item.observaciones_generales || ''
+                ]));
+
+                const sheets = [
+                    { name: 'Inspecciones', rows: [headerRow, ...dataRows] },
+                    { name: 'Filtros aplicados', rows: buildFiltersSummaryRows(filters) }
+                ];
+
+                const today = new Date();
+                const datePart = today.toISOString().split('T')[0];
+                const fileName = sanitizeFilename(`inspecciones_${datePart}.xls`);
+
+                downloadWorkbook(fileName, sheets);
+                showNotification('Exportación completada. El archivo Excel se descargó correctamente.', 'success');
+            } catch (error) {
+                console.error('Error al exportar inspecciones:', error);
+                showNotification(`Error al exportar inspecciones: ${error.message}`, 'error');
+            }
+        }
+
         // --- FIN Lista y Actualización ---
 
 
@@ -3163,16 +3354,22 @@
                 // Consulta para las inspecciones
                 let query = supabaseClient.from('InspeccionICA_inspecciones')
                     .select(`
-                        id, 
-                        bus_ppu, 
-                        fecha_hora_inspeccion, 
+                        id,
+                        bus_ppu,
+                        fecha_hora_inspeccion,
                         fecha_ultima_actualizacion_estado,
-                        estado_general, 
+                        estado_general,
+                        nombre_fiscalizador,
+                        nombre_registrador,
+                        observaciones_generales,
+                        supervisor:InspeccionICA_usuarios!InspeccionICA_inspecciones_supervisor_asignado_id_fkey(nombre_completo),
+                        cleaner:InspeccionICA_usuarios!InspeccionICA_inspecciones_cleaner_asignado_id_fkey(nombre_completo),
                         terminal:InspeccionICA_terminales(id, nombre),
                         InspeccionICA_detalles_inspeccion(
                             id,
                             cumple,
                             criterio_id,
+                            observacion_criterio,
                             InspeccionICA_criterios(
                                 id,
                                 descripcion,
@@ -3192,6 +3389,8 @@
                 const { data, error } = await query;
 
                 if (error) throw error;
+
+                reporteDatosCache = Array.isArray(data) ? data : [];
 
                 // Si no hay datos
                 if (data.length === 0) {
@@ -3257,6 +3456,17 @@
                 reporteTotal.textContent = totalInspecciones;
                 reporteTasaCumplimiento.textContent = `${tasaCumplimiento}%`;
                 reporteTiempoPromedio.textContent = tiempoPromedioHoras !== 'N/A' ? `${tiempoPromedioHoras}h` : 'N/A';
+
+                reporteResumenCache = {
+                    totalInspecciones,
+                    tasaCumplimiento,
+                    tiempoPromedioHoras,
+                    periodo: periodoValue,
+                    terminalId,
+                    tipoReporte,
+                    fechaInicio,
+                    fechaFin
+                };
 
                 // Datos para gráfico de tendencia temporal
                 const fechasUnicas = [...new Set(data.map(ins => ins.fecha_hora_inspeccion.split('T')[0]))].sort();
@@ -3414,6 +3624,8 @@
                 const criteriosOrdenados = Array.from(criteriosEvaluados.values())
                     .sort((a, b) => b.porcentajeIncumplimiento - a.porcentajeIncumplimiento);
 
+                reporteCriteriosCache = criteriosOrdenados;
+
                 // Datos para gráfico de criterios
                 if (reporteCriteriosChart && criteriosOrdenados.length > 0) {
                     const colorScheme = isDarkMode ? chartColors.dark : chartColors.light;
@@ -3537,6 +3749,10 @@
             } catch (error) {
                 console.error("Error al generar reporte:", error);
 
+                reporteDatosCache = [];
+                reporteResumenCache = null;
+                reporteCriteriosCache = [];
+
                 reporteTotal.textContent = 'Error';
                 reporteTasaCumplimiento.textContent = 'Error';
                 reporteTiempoPromedio.textContent = 'Error';
@@ -3549,6 +3765,109 @@
                     </tr>`;
 
                 showNotification(`Error al generar reporte: ${error.message}`, 'error');
+            }
+        }
+
+        async function exportReporteToExcel() {
+            try {
+                if (!reporteResumenCache || !Array.isArray(reporteDatosCache) || reporteDatosCache.length === 0) {
+                    showNotification('Debe generar un reporte antes de exportarlo.', 'warning');
+                    return;
+                }
+
+                showNotification('Generando archivo del reporte...', 'info', 4000);
+
+                const resumenRows = [
+                    ['Métrica', 'Valor'],
+                    ['Total de inspecciones', reporteResumenCache.totalInspecciones ?? 0],
+                    ['Tasa de cumplimiento', `${reporteResumenCache.tasaCumplimiento ?? 0}%`],
+                    ['Tiempo promedio de resolución (h)', reporteResumenCache.tiempoPromedioHoras === 'N/A' ? 'N/A' : reporteResumenCache.tiempoPromedioHoras]
+                ];
+
+                const terminalValor = (() => {
+                    if (!reporteResumenCache.terminalId) return 'Todos';
+                    const terminal = terminalesData.find(t => String(t.id) === String(reporteResumenCache.terminalId));
+                    return terminal ? terminal.nombre : reporteResumenCache.terminalId;
+                })();
+
+                const filtrosRows = [
+                    ['Filtro', 'Valor'],
+                    ['Periodo', getReportePeriodoLabel(reporteResumenCache.periodo)],
+                    ['Fecha desde', reporteResumenCache.fechaInicio || 'Sin definir'],
+                    ['Fecha hasta', reporteResumenCache.fechaFin || 'Sin definir'],
+                    ['Terminal', terminalValor],
+                    ['Tipo de reporte', getReporteTipoLabel(reporteResumenCache.tipoReporte)]
+                ];
+
+                const inspeccionesHeader = ['#', 'ID Inspección', 'PPU', 'Terminal', 'Fecha de inspección', 'Estado', 'Fiscalizador', 'Registrador', 'Supervisor asignado', 'Cleaner asignado', 'Observaciones generales', 'Última actualización'];
+                const inspeccionesRows = reporteDatosCache.map((inspeccion, index) => ([
+                    index + 1,
+                    inspeccion.id,
+                    inspeccion.bus_ppu || '',
+                    inspeccion.terminal?.nombre || '',
+                    inspeccion.fecha_hora_inspeccion ? formatDate(inspeccion.fecha_hora_inspeccion) : '',
+                    inspeccion.estado_general || '',
+                    inspeccion.nombre_fiscalizador || '',
+                    inspeccion.nombre_registrador || '',
+                    inspeccion.supervisor?.nombre_completo || 'No asignado',
+                    inspeccion.cleaner?.nombre_completo || 'No asignado',
+                    inspeccion.observaciones_generales || '',
+                    inspeccion.fecha_ultima_actualizacion_estado ? formatDate(inspeccion.fecha_ultima_actualizacion_estado) : ''
+                ]));
+
+                const detallesHeader = ['ID Inspección', 'PPU', 'Condición', 'Cumple', 'Observación', 'Fecha de inspección'];
+                const detallesRows = [];
+                reporteDatosCache.forEach((inspeccion) => {
+                    const detalles = inspeccion.InspeccionICA_detalles_inspeccion || [];
+                    if (detalles.length === 0) return;
+
+                    detalles.forEach(detalle => {
+                        const criterio = detalle.InspeccionICA_criterios;
+                        detallesRows.push([
+                            inspeccion.id,
+                            inspeccion.bus_ppu || '',
+                            criterio ? `#${criterio.numero_condicion} ${criterio.descripcion}` : 'Sin criterio',
+                            detalle.cumple ? 'Sí' : 'No',
+                            detalle.observacion_criterio || '',
+                            inspeccion.fecha_hora_inspeccion ? formatDate(inspeccion.fecha_hora_inspeccion) : ''
+                        ]);
+                    });
+                });
+
+                const criteriosRows = Array.isArray(reporteCriteriosCache) && reporteCriteriosCache.length > 0
+                    ? [['Condición', 'Total evaluaciones', 'Cumple', 'No cumple', '% Incumplimiento'], ...reporteCriteriosCache.map(criterio => ([
+                        criterio.descripcion,
+                        criterio.total,
+                        criterio.cumple,
+                        criterio.noCumple,
+                        `${criterio.porcentajeIncumplimiento}%`
+                    ]))]
+                    : null;
+
+                const sheets = [
+                    { name: 'Resumen', rows: resumenRows },
+                    { name: 'Filtros', rows: filtrosRows },
+                    { name: 'Inspecciones', rows: [inspeccionesHeader, ...inspeccionesRows] }
+                ];
+
+                if (detallesRows.length > 0) {
+                    sheets.push({ name: 'Detalles criterios', rows: [detallesHeader, ...detallesRows] });
+                }
+
+                if (criteriosRows) {
+                    sheets.push({ name: 'Resumen criterios', rows: criteriosRows });
+                }
+
+                const today = new Date();
+                const datePart = today.toISOString().split('T')[0];
+                const periodoPart = sanitizeFilename(reporteResumenCache.periodo || 'periodo');
+                const fileName = sanitizeFilename(`reporte_inspecciones_${periodoPart}_${datePart}.xls`);
+
+                downloadWorkbook(fileName, sheets);
+                showNotification('Reporte exportado correctamente en Excel.', 'success');
+            } catch (error) {
+                console.error('Error al exportar reporte:', error);
+                showNotification(`Error al exportar reporte: ${error.message}`, 'error');
             }
         }
         // --- FIN Reportes ---
@@ -3841,15 +4160,13 @@
 
                     if (exportButton) {
                         exportButton.addEventListener('click', () => {
-                            showNotification('Exportación iniciada. El archivo se descargará en breve.', 'info');
-                            // Lógica de exportación (pendiente de implementar)
+                            exportInspeccionesToExcel();
                         });
                     }
 
                     if (exportarReporteBtn) {
                         exportarReporteBtn.addEventListener('click', () => {
-                            showNotification('Exportación del reporte iniciada. El archivo se descargará en breve.', 'info');
-                            // Lógica de exportación de reporte (pendiente de implementar)
+                            exportReporteToExcel();
                         });
                     }
 
