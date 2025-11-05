@@ -723,6 +723,9 @@
                                                 Terminal</th>
                                             <th
                                                 class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                                Terminal de Inspección</th>
+                                            <th
+                                                class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                                 Estado</th>
                                             <th
                                                 class="px-3 py-3 bg-gray-50 dark:bg-gray-700/50 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
@@ -732,7 +735,7 @@
                                     <tbody id="recent-inspections"
                                         class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                         <tr>
-                                            <td colspan="4"
+                                            <td colspan="5"
                                                 class="px-3 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
                                                 Cargando...</td>
                                         </tr>
@@ -806,6 +809,18 @@
                                             <option value="Pendiente">Pendiente</option>
                                             <option value="En Revisión">En Revisión</option>
                                             <option value="Solucionado">Solucionado</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="terminal_inspeccion"
+                                            class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal
+                                            de Inspección <span class="text-red-500">*</span></label>
+                                        <select id="terminal_inspeccion" name="terminal_inspeccion" required
+                                            class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                            <option value="">Seleccione Terminal de Inspección</option>
+                                            <option value="El Roble">El Roble</option>
+                                            <option value="La Reina">La Reina</option>
+                                            <option value="Maria Angelica">Maria Angelica</option>
                                         </select>
                                     </div>
                                 </div>
@@ -923,6 +938,18 @@
                                 </select>
                             </div>
                             <div>
+                                <label for="filter-terminal-inspeccion"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Terminal de
+                                    Inspección</label>
+                                <select id="filter-terminal-inspeccion"
+                                    class="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                    <option value="">Todos</option>
+                                    <option value="El Roble">El Roble</option>
+                                    <option value="La Reina">La Reina</option>
+                                    <option value="Maria Angelica">Maria Angelica</option>
+                                </select>
+                            </div>
+                            <div>
                                 <label for="filter-estado"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Estado</label>
                                 <select id="filter-estado"
@@ -989,6 +1016,9 @@
                                             Terminal</th>
                                         <th scope="col"
                                             class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                            Terminal de Inspección</th>
+                                        <th scope="col"
+                                            class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                             Fiscalizador</th>
                                         <th scope="col"
                                             class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
@@ -1001,7 +1031,7 @@
                                 <tbody id="inspecciones-tbody"
                                     class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                                     <tr>
-                                        <td colspan="6"
+                                        <td colspan="7"
                                             class="px-4 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
                                             <div class="flex flex-col items-center justify-center">
                                                 <div
@@ -1359,6 +1389,8 @@
             }
         };
 
+        const TERMINALES_INSPECCION = ['El Roble', 'La Reina', 'Maria Angelica'];
+
         // --- Variables Globales para Selectores de DOM ---
         let views = {};
         let navLinks = null;
@@ -1368,6 +1400,7 @@
         let ppuErrorContainer = null;
         let terminalSelect = null;
         let terminalErrorContainer = null;
+        let terminalInspeccionSelect = null;
         let criteriosContainer = null;
         let inspeccionesTbody = null;
         let listaErrorContainer = null;
@@ -1385,6 +1418,7 @@
         let cleanerSelect = null;
         let searchPpuInput = null;
         let filterTerminalSelect = null;
+        let filterTerminalInspeccionSelect = null;
         let filterEstadoSelect = null;
         let filterFechaInicioInput = null;
         let filterFechaFinInput = null;
@@ -1567,6 +1601,7 @@
             if (filters.ppu) q = q.ilike('bus_ppu', `%${filters.ppu}%`);
             if (filters.estado) q = q.eq('estado_general', filters.estado);
             if (filters.terminal) q = q.eq('terminal_id', filters.terminal);
+            if (filters.terminalInspeccion) q = q.eq('terminal_inspeccion', filters.terminalInspeccion);
             if (filters.fechaInicio) q = q.gte('fecha_hora_inspeccion', `${filters.fechaInicio}T00:00:00Z`);
             if (filters.fechaFin) q = q.lte('fecha_hora_inspeccion', `${filters.fechaFin}T23:59:59Z`);
 
@@ -1591,17 +1626,74 @@
 
         function createWorksheetXml(name, rows = []) {
             const safeName = escapeXml((name || 'Hoja').substring(0, 31) || 'Hoja');
-            const tableRows = rows.map(row => {
+            const columnCount = rows?.[0]?.length || 0;
+
+            if (!columnCount) {
+                return `<Worksheet ss:Name="${safeName}"><Table/></Worksheet>`;
+            }
+
+            const charWidths = Array(columnCount).fill(0);
+            rows.forEach((row, rowIndex) => {
+                if (rowIndex === 0) return; // la fila de título no necesita ajustar ancho
+                row.forEach((cell, colIdx) => {
+                    const text = String(normaliseExcelValue(cell) || '');
+                    const maxLineLength = text.split(/\r?\n/).reduce((acc, line) => Math.max(acc, line.length), 0);
+                    if (maxLineLength > charWidths[colIdx]) {
+                        charWidths[colIdx] = maxLineLength;
+                    }
+                });
+            });
+
+            const columnDefs = charWidths
+                .map(len => {
+                    const effectiveLen = len > 0 ? len : 12;
+                    const width = Math.min(240, Math.max(20, effectiveLen * 1.95 + 14));
+                    return `<Column ss:AutoFitWidth="0" ss:Width="${width.toFixed(2)}"/>`;
+                })
+                .join('');
+
+            const tableRows = rows.map((row, rowIndex) => {
+                if (rowIndex === 0) {
+                    const titleText = escapeXml(String(normaliseExcelValue(row[0]) || name));
+                    const mergeAcross = Math.max(0, columnCount - 1);
+                    return `<Row ss:AutoFitHeight="1">
+                        <Cell ss:StyleID="Title" ss:MergeAcross="${mergeAcross}">
+                            <Data ss:Type="String">${titleText}</Data>
+                        </Cell>
+                    </Row>`;
+                }
+
+                const styleId = (() => {
+                    if (rowIndex === 1) return 'Header';
+                    return (rowIndex % 2 === 0) ? 'RowEven' : 'RowOdd';
+                })();
+
                 const cells = row.map(cell => {
                     const normalised = normaliseExcelValue(cell);
                     const isNumber = typeof normalised === 'number';
                     const cellValue = isNumber ? normalised : escapeXml(String(normalised));
                     const dataType = isNumber ? 'Number' : 'String';
-                    return `<Cell><Data ss:Type="${dataType}">${cellValue}</Data></Cell>`;
+                    return `<Cell ss:StyleID="${styleId}"><Data ss:Type="${dataType}">${cellValue}</Data></Cell>`;
                 }).join('');
-                return `<Row>${cells}</Row>`;
+
+                return `<Row ss:AutoFitHeight="1">${cells}</Row>`;
             }).join('');
-            return `<Worksheet ss:Name="${safeName}"><Table>${tableRows}</Table></Worksheet>`;
+
+            const freezeRow = rows.length > 1 ? 2 : 1;
+            const worksheetOptions = `<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+    <PageSetup>
+        <Header x:Margin="0.3"/>
+        <Footer x:Margin="0.3"/>
+        <PageMargins x:Bottom="0.5" x:Left="0.5" x:Right="0.5" x:Top="0.5"/>
+    </PageSetup>
+    <FreezePanes/>
+    <FrozenNoSplit/>
+    <SplitHorizontal>${freezeRow}</SplitHorizontal>
+    <TopRowBottomPane>${freezeRow}</TopRowBottomPane>
+    <ActivePane>2</ActivePane>
+</WorksheetOptions>`;
+
+            return `<Worksheet ss:Name="${safeName}"><Table>${columnDefs}${tableRows}</Table>${worksheetOptions}</Worksheet>`;
         }
 
         function buildWorkbookXml(sheets = []) {
@@ -1612,8 +1704,57 @@
  xmlns:x="urn:schemas-microsoft-com:office:excel"
  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:html="http://www.w3.org/TR/REC-html40">`;
+            const styles = `<Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+        <Alignment ss:Vertical="Center"/>
+        <Borders/>
+        <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#1F2937"/>
+        <Interior/>
+        <NumberFormat/>
+        <Protection/>
+    </Style>
+    <Style ss:ID="Title">
+        <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+        <Font ss:FontName="Segoe UI" ss:Size="16" ss:Bold="1" ss:Color="#0F172A"/>
+        <Interior ss:Color="#E0F2FE" ss:Pattern="Solid"/>
+        <Borders>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#38BDF8"/>
+        </Borders>
+    </Style>
+    <Style ss:ID="Header">
+        <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="0"/>
+        <Font ss:FontName="Calibri" ss:Bold="1" ss:Color="#FFFFFF" ss:Size="11"/>
+        <Interior ss:Color="#2563EB" ss:Pattern="Solid"/>
+        <Borders>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#1E40AF"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#1E40AF"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#1E40AF"/>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#1E40AF"/>
+        </Borders>
+    </Style>
+    <Style ss:ID="RowOdd">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Left" ss:WrapText="0"/>
+        <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#111827"/>
+        <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+        <Borders>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="0.5" ss:Color="#E5E7EB"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="0.5" ss:Color="#E5E7EB"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="0.5" ss:Color="#D1D5DB"/>
+        </Borders>
+    </Style>
+    <Style ss:ID="RowEven">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Left" ss:WrapText="0"/>
+        <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#111827"/>
+        <Interior ss:Color="#F3F4F6" ss:Pattern="Solid"/>
+        <Borders>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="0.5" ss:Color="#E5E7EB"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="0.5" ss:Color="#E5E7EB"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="0.5" ss:Color="#D1D5DB"/>
+        </Borders>
+    </Style>
+</Styles>`;
             const body = sheets.map(({ name, rows }) => createWorksheetXml(name, rows)).join('');
-            return `${header}${body}</Workbook>`;
+            return `${header}${styles}${body}</Workbook>`;
         }
 
         function downloadWorkbook(filename, sheets) {
@@ -1641,11 +1782,13 @@
                 const terminalEncontrado = terminalesData.find(t => String(t.id) === String(filters.terminal));
                 return terminalEncontrado ? terminalEncontrado.nombre : filters.terminal;
             })();
+            const terminalInspeccionValor = filters.terminalInspeccion || 'Todos';
 
             return [
                 ['Filtro', 'Valor'],
                 ['PPU', filters.ppu || 'Todos'],
                 ['Terminal', terminalValor],
+                ['Terminal de Inspección', terminalInspeccionValor],
                 ['Estado', filters.estado || 'Todos'],
                 ['Fecha desde', filters.fechaInicio || 'Sin filtro'],
                 ['Fecha hasta', filters.fechaFin || 'Sin filtro']
@@ -1981,6 +2124,22 @@
             }
         }
 
+        function populateTerminalInspeccionSelects() {
+            if (terminalInspeccionSelect) {
+                terminalInspeccionSelect.innerHTML = '<option value="">Seleccione Terminal de Inspección</option>';
+                TERMINALES_INSPECCION.forEach(nombre => {
+                    terminalInspeccionSelect.appendChild(new Option(nombre, nombre));
+                });
+            }
+
+            if (filterTerminalInspeccionSelect) {
+                filterTerminalInspeccionSelect.innerHTML = '<option value="">Todos</option>';
+                TERMINALES_INSPECCION.forEach(nombre => {
+                    filterTerminalInspeccionSelect.appendChild(new Option(nombre, nombre));
+                });
+            }
+        }
+
         async function loadTerminalesParaFormulario() {
             await populateTerminalSelect(terminalSelect, terminalErrorContainer, false, 'Seleccione Terminal');
         }
@@ -2207,7 +2366,7 @@
             const formData = new FormData(registroForm);
 
             // Validaciones
-            if (!formData.get('terminal') || !formData.get('ppu') || !formData.get('fiscalizador') || !formData.get('registrador')) {
+            if (!formData.get('terminal') || !formData.get('terminal_inspeccion') || !formData.get('ppu') || !formData.get('fiscalizador') || !formData.get('registrador')) {
                 showErrorMessage(formMessage, 'Complete todos los campos requeridos.');
                 submitButton.disabled = false;
                 submitButton.innerHTML = 'Guardar Inspección';
@@ -2233,6 +2392,7 @@
             const inspeccionData = {
                 bus_ppu: formData.get('ppu'),
                 terminal_id: formData.get('terminal'),
+                terminal_inspeccion: formData.get('terminal_inspeccion'),
                 nombre_fiscalizador: formData.get('fiscalizador'),
                 nombre_registrador: formData.get('registrador'),
                 estado_general: formData.get('estado_inicial'),
@@ -2345,7 +2505,7 @@
 
                 // Consulta para la página actual
                 let query = supabaseClient.from('InspeccionICA_inspecciones')
-                    .select(`id, bus_ppu, fecha_hora_inspeccion, nombre_fiscalizador, estado_general, terminal:InspeccionICA_terminales(nombre)`)
+                    .select(`id, bus_ppu, fecha_hora_inspeccion, nombre_fiscalizador, estado_general, terminal_inspeccion, terminal:InspeccionICA_terminales(nombre)`)
                     .order('fecha_hora_inspeccion', { ascending: false })
                     .range((currentPage - 1) * pageSize, currentPage * pageSize - 1);
 
@@ -2362,7 +2522,7 @@
                 if (data.length === 0) {
                     inspeccionesTbody.innerHTML = `
                         <tr>
-                            <td colspan="6" class="px-4 py-10 text-center text-gray-500 dark:text-gray-400">
+                            <td colspan="7" class="px-4 py-10 text-center text-gray-500 dark:text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
@@ -2385,6 +2545,7 @@
                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">${inspeccion.bus_ppu}</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${formatDate(inspeccion.fecha_hora_inspeccion)}</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${inspeccion.terminal?.nombre || 'N/A'}</td>
+                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${inspeccion.terminal_inspeccion || 'N/A'}</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">${inspeccion.nombre_fiscalizador}</td>
                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 status-cell">
                             ${getStatusBadge(inspeccion.estado_general)}
@@ -2581,6 +2742,7 @@
             return {
                 ppu: searchPpuInput?.value.trim() || '',
                 terminal: filterTerminalSelect?.value || '',
+                terminalInspeccion: filterTerminalInspeccionSelect?.value || '',
                 estado: filterEstadoSelect?.value || '',
                 fechaInicio: filterFechaInicioInput?.value || '',
                 fechaFin: filterFechaFinInput?.value || '',
@@ -2599,7 +2761,7 @@
             while (keepFetching) {
                 let query = supabaseClient
                     .from('InspeccionICA_inspecciones')
-                    .select(`id, bus_ppu, fecha_hora_inspeccion, fecha_ultima_actualizacion_estado, nombre_fiscalizador, nombre_registrador, estado_general, observaciones_generales, terminal:InspeccionICA_terminales(nombre), supervisor:InspeccionICA_usuarios!InspeccionICA_inspecciones_supervisor_asignado_id_fkey(nombre_completo), cleaner:InspeccionICA_usuarios!InspeccionICA_inspecciones_cleaner_asignado_id_fkey(nombre_completo)`)
+                    .select(`id, bus_ppu, fecha_hora_inspeccion, fecha_ultima_actualizacion_estado, nombre_fiscalizador, nombre_registrador, estado_general, observaciones_generales, terminal_inspeccion, terminal:InspeccionICA_terminales(nombre), supervisor:InspeccionICA_usuarios!InspeccionICA_inspecciones_supervisor_asignado_id_fkey(nombre_completo), cleaner:InspeccionICA_usuarios!InspeccionICA_inspecciones_cleaner_asignado_id_fkey(nombre_completo)`)
                     .order('fecha_hora_inspeccion', { ascending: false })
                     .range(from, to);
 
@@ -2634,12 +2796,16 @@
                     return;
                 }
 
-                const headerRow = ['#', 'PPU', 'Fecha de inspección', 'Terminal', 'Fiscalizador', 'Registrador', 'Estado', 'Última actualización', 'Supervisor asignado', 'Cleaner asignado', 'Observaciones generales'];
+                const now = new Date();
+                const generatedAt = now.toLocaleString('es-CL', { dateStyle: 'long', timeStyle: 'short' });
+                const headerRow = ['#', 'PPU', 'Fecha de inspección', 'Terminal', 'Terminal de inspección', 'Fiscalizador', 'Registrador', 'Estado', 'Última actualización', 'Supervisor asignado', 'Cleaner asignado', 'Observaciones generales'];
+                const titleRow = [`Reporte de inspecciones · ${generatedAt}`, ...Array(headerRow.length - 1).fill('')];
                 const dataRows = exportData.map((item, index) => ([
                     index + 1,
                     item.bus_ppu || '',
                     item.fecha_hora_inspeccion ? formatDate(item.fecha_hora_inspeccion) : '',
                     item.terminal?.nombre || '',
+                    item.terminal_inspeccion || '',
                     item.nombre_fiscalizador || '',
                     item.nombre_registrador || '',
                     item.estado_general || '',
@@ -2650,12 +2816,11 @@
                 ]));
 
                 const sheets = [
-                    { name: 'Inspecciones', rows: [headerRow, ...dataRows] },
-                    { name: 'Filtros aplicados', rows: buildFiltersSummaryRows(filters) }
+                    { name: 'Inspecciones', rows: [titleRow, headerRow, ...dataRows] },
+                    { name: 'Filtros aplicados', rows: [[`Filtros aplicados · ${generatedAt}`, ''], ...buildFiltersSummaryRows(filters)] }
                 ];
 
-                const today = new Date();
-                const datePart = today.toISOString().split('T')[0];
+                const datePart = now.toISOString().split('T')[0];
                 const fileName = sanitizeFilename(`inspecciones_${datePart}.xls`);
 
                 downloadWorkbook(fileName, sheets);
@@ -2671,7 +2836,7 @@
 
         // --- Lógica Filtros ---
         function handleApplyFilters() {
-            if (!searchPpuInput || !filterTerminalSelect || !filterEstadoSelect || !filterFechaInicioInput || !filterFechaFinInput) {
+            if (!searchPpuInput || !filterTerminalSelect || !filterTerminalInspeccionSelect || !filterEstadoSelect || !filterFechaInicioInput || !filterFechaFinInput) {
                 console.error("handleApplyFilters: Faltan elementos.");
                 return;
             }
@@ -2731,6 +2896,10 @@
                             <div class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
                                 <strong class="text-gray-600 dark:text-gray-400">Terminal:</strong> 
                                 <span class="text-gray-900 dark:text-white">${data.terminal?.nombre || 'N/A'}</span>
+                            </div>
+                            <div class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+                                <strong class="text-gray-600 dark:text-gray-400">Terminal de Inspección:</strong> 
+                                <span class="text-gray-900 dark:text-white">${data.terminal_inspeccion || 'N/A'}</span>
                             </div>
                             <div class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
                                 <strong class="text-gray-600 dark:text-gray-400">Actualización:</strong> 
@@ -3236,7 +3405,7 @@
             try {
                 const { data, error } = await supabaseClient
                     .from('InspeccionICA_inspecciones')
-                    .select(`id, bus_ppu, fecha_hora_inspeccion, estado_general, terminal:InspeccionICA_terminales(nombre)`)
+                    .select(`id, bus_ppu, fecha_hora_inspeccion, estado_general, terminal_inspeccion, terminal:InspeccionICA_terminales(nombre)`)
                     .order('fecha_hora_inspeccion', { ascending: false })
                     .limit(5);
 
@@ -3245,7 +3414,7 @@
                 if (data.length === 0) {
                     recentInspections.innerHTML = `
                         <tr>
-                            <td colspan="4" class="px-3 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
+                            <td colspan="5" class="px-3 py-4 text-center text-sm text-gray-500 dark:text-gray-400">
                                 No hay inspecciones recientes
                             </td>
                         </tr>`;
@@ -3264,6 +3433,9 @@
                         </td>
                         <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                             ${ins.terminal?.nombre || 'N/A'}
+                        </td>
+                        <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+                            ${ins.terminal_inspeccion || 'N/A'}
                         </td>
                         <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                             ${getStatusBadge(ins.estado_general)}
@@ -3975,6 +4147,7 @@
             ppuErrorContainer = document.getElementById('ppu-error-container');
             terminalSelect = document.getElementById('terminal');
             terminalErrorContainer = document.getElementById('terminal-error-container');
+            terminalInspeccionSelect = document.getElementById('terminal_inspeccion');
             criteriosContainer = document.getElementById('criterios-container');
             criteriosCompletados = document.getElementById('criterios-completados');
             formMessage = document.getElementById('form-message');
@@ -3985,6 +4158,7 @@
             listaErrorContainer = document.getElementById('lista-error-container');
             searchPpuInput = document.getElementById('search-ppu');
             filterTerminalSelect = document.getElementById('filter-terminal');
+            filterTerminalInspeccionSelect = document.getElementById('filter-terminal-inspeccion');
             filterEstadoSelect = document.getElementById('filter-estado');
             filterFechaInicioInput = document.getElementById('filter-fecha-inicio');
             filterFechaFinInput = document.getElementById('filter-fecha-fin');
@@ -4056,6 +4230,8 @@
             reporteTasaCumplimiento = document.getElementById('reporte-tasa-cumplimiento');
             reporteTiempoPromedio = document.getElementById('reporte-tiempo-promedio');
             reporteCriteriosTbody = document.getElementById('reporte-criterios-tbody');
+
+            populateTerminalInspeccionSelects();
 
             // Configuración Supabase
             const SUPABASE_URL = 'https://tcmtxvuucjttngcazgff.supabase.co';
