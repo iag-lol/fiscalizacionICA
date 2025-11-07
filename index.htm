@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCF - Control Fiscalizaciones</title>
+    <title>ICA - Control Fiscalizaciones</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -19,20 +19,45 @@
                     },
                     colors: {
                         primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
+                            50: '#f0f4ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                            950: '#1e1b4b',
+                        },
+                        accent: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75',
                         },
                     },
                     animation: {
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 8s linear infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-down': 'slideDown 0.5s ease-out',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
                     }
                 }
             }
@@ -43,11 +68,69 @@
         body {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
+            background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.03) 0px, transparent 50%),
+                             radial-gradient(at 100% 0%, rgba(217, 70, 239, 0.03) 0px, transparent 50%);
+        }
+
+        .dark body {
+            background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+                             radial-gradient(at 100% 0%, rgba(217, 70, 239, 0.08) 0px, transparent 50%);
         }
 
         /* Transiciones suaves */
         .transition-all {
             transition: all 0.3s ease;
+        }
+
+        /* Animaciones avanzadas */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gradient border effect */
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(to right, #6366f1, #d946ef);
+            padding: 2px;
+            border-radius: 0.75rem;
+        }
+
+        .gradient-border-content {
+            background: white;
+            border-radius: 0.625rem;
+        }
+
+        .dark .gradient-border-content {
+            background: #1f2937;
         }
 
         /* Animación para alertas */
@@ -347,23 +430,26 @@
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
         <aside id="sidebar"
-            class="w-64 bg-white dark:bg-gray-800 shadow-lg fixed inset-y-0 left-0 z-40 md:relative md:translate-x-0 print:hidden transition-all">
+            class="w-64 glass shadow-2xl fixed inset-y-0 left-0 z-40 md:relative md:translate-x-0 print:hidden transition-all border-r border-white/20 dark:border-gray-700/50">
             <div class="flex flex-col h-full">
-                <div class="p-5 border-b dark:border-gray-700">
-                    <div class="flex items-center mb-6 space-x-2">
-                        <div class="bg-primary-600 text-white p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
-                                <path d="M18 14h-8" />
-                                <path d="M15 18h-5" />
-                                <path d="M10 6h8v4h-8V6Z" />
-                            </svg>
+                <div class="p-5 border-b border-white/20 dark:border-gray-700/50">
+                    <div class="flex items-center mb-6 space-x-3">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl blur-md opacity-75 animate-pulse-slow"></div>
+                            <div class="relative bg-gradient-to-br from-primary-600 to-accent-600 text-white p-3 rounded-xl shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+                                    <path d="M18 14h-8" />
+                                    <path d="M15 18h-5" />
+                                    <path d="M10 6h8v4h-8V6Z" />
+                                </svg>
+                            </div>
                         </div>
                         <div>
-                            <h1 class="text-xl font-bold">SCF App</h1>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">Control de Fiscalizaciones</p>
+                            <h1 class="text-xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 dark:from-primary-400 dark:to-accent-400 bg-clip-text text-transparent">ICA</h1>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">Control de Fiscalizaciones</p>
                         </div>
                     </div>
                 </div>
@@ -376,50 +462,53 @@
                         <ul class="space-y-1">
                             <li>
                                 <a href="#" data-view="dashboard"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
-                                        <rect width="7" height="9" x="3" y="3" rx="1" />
-                                        <rect width="7" height="5" x="14" y="3" rx="1" />
-                                        <rect width="7" height="9" x="14" y="12" rx="1" />
-                                        <rect width="7" height="5" x="3" y="16" rx="1" />
-                                    </svg>
-                                    Dashboard
+                                    class="nav-link flex items-center p-3 text-sm font-medium rounded-xl hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 dark:hover:from-primary-950/30 dark:hover:to-accent-950/30 group transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform">
+                                    <div class="mr-3 p-1.5 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 text-white group-hover:shadow-lg transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect width="7" height="9" x="3" y="3" rx="1" />
+                                            <rect width="7" height="5" x="14" y="3" rx="1" />
+                                            <rect width="7" height="9" x="14" y="12" rx="1" />
+                                            <rect width="7" height="5" x="3" y="16" rx="1" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 dark:text-gray-300">Dashboard</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" data-view="registrar"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
-                                        <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-                                        <path
-                                            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                                        <path d="M9 14h6" />
-                                        <path d="M12 11v6" />
-                                    </svg>
-                                    Registrar Inspección
+                                    class="nav-link flex items-center p-3 text-sm font-medium rounded-xl hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 dark:hover:from-primary-950/30 dark:hover:to-accent-950/30 group transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform">
+                                    <div class="mr-3 p-1.5 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 text-white group-hover:shadow-lg transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                                            <path
+                                                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                                            <path d="M9 14h6" />
+                                            <path d="M12 11v6" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 dark:text-gray-300">Registrar Inspección</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" data-view="lista"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
-                                        <line x1="8" x2="21" y1="6" y2="6" />
-                                        <line x1="8" x2="21" y1="12" y2="12" />
-                                        <line x1="8" x2="21" y1="18" y2="18" />
-                                        <line x1="3" x2="3.01" y1="6" y2="6" />
-                                        <line x1="3" x2="3.01" y1="12" y2="12" />
-                                        <line x1="3" x2="3.01" y1="18" y2="18" />
-                                    </svg>
-                                    Ver Inspecciones
+                                    class="nav-link flex items-center p-3 text-sm font-medium rounded-xl hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 dark:hover:from-primary-950/30 dark:hover:to-accent-950/30 group transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform">
+                                    <div class="mr-3 p-1.5 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 text-white group-hover:shadow-lg transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <line x1="8" x2="21" y1="6" y2="6" />
+                                            <line x1="8" x2="21" y1="12" y2="12" />
+                                            <line x1="8" x2="21" y1="18" y2="18" />
+                                            <line x1="3" x2="3.01" y1="6" y2="6" />
+                                            <line x1="3" x2="3.01" y1="12" y2="12" />
+                                            <line x1="3" x2="3.01" y1="18" y2="18" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 dark:text-gray-300">Ver Inspecciones</span>
                                 </a>
                             </li>
                         </ul>
@@ -432,33 +521,34 @@
                         <ul class="space-y-1">
                             <li>
                                 <a href="#" data-view="reportes"
-                                    class="nav-link flex items-center p-3 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group transition-all">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="mr-3 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all">
-                                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
-                                        <path d="M22 12A10 10 0 0 0 12 2v10z" />
-                                    </svg>
-                                    Reportes
+                                    class="nav-link flex items-center p-3 text-sm font-medium rounded-xl hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 dark:hover:from-primary-950/30 dark:hover:to-accent-950/30 group transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform">
+                                    <div class="mr-3 p-1.5 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 text-white group-hover:shadow-lg transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                                            <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 dark:text-gray-300">Reportes</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
 
-                <div class="p-4 border-t dark:border-gray-700 mt-auto">
+                <div class="p-4 border-t border-white/20 dark:border-gray-700/50 mt-auto">
                     <!-- Theme Switcher -->
                     <button id="theme-toggle"
-                        class="w-full flex items-center justify-center p-2 text-sm rounded-lg transition-colors bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200">
+                        class="w-full flex items-center justify-center p-3 text-sm font-medium rounded-xl transition-all duration-300 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-950/30 dark:to-accent-950/30 text-gray-800 dark:text-gray-200 hover:shadow-lg hover:scale-105 transform border border-primary-200/50 dark:border-primary-700/50">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            id="theme-toggle-dark-icon" class="hidden dark:inline-block mr-2">
+                            id="theme-toggle-dark-icon" class="hidden dark:inline-block mr-2 text-primary-500">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                         </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            id="theme-toggle-light-icon" class="inline-block dark:hidden mr-2">
+                            id="theme-toggle-light-icon" class="inline-block dark:hidden mr-2 text-primary-600">
                             <circle cx="12" cy="12" r="4" />
                             <path d="M12 2v2" />
                             <path d="M12 20v2" />
@@ -1362,6 +1452,7 @@
         let currentPage = 1;
         let pageSize = 10;
         let totalPages = 1;
+        let stickyFormValues = {};
 
         // Paletas de colores
         const chartColors = {
@@ -1390,6 +1481,7 @@
         };
 
         const TERMINALES_INSPECCION = ['El Roble', 'La Reina', 'Maria Angelica'];
+        const STICKY_FORM_FIELDS = ['fiscalizador', 'registrador', 'terminal', 'estado_inicial', 'terminal_inspeccion', 'supervisor'];
 
         // --- Variables Globales para Selectores de DOM ---
         let views = {};
@@ -1469,6 +1561,60 @@
         let reporteTiempoPromedio = null;
         let reporteCriteriosTbody = null;
         let exportButton = null;
+
+        // --- Persistencia temporal del formulario ---
+        function updateStickyValue(fieldId, value) {
+            if (!STICKY_FORM_FIELDS.includes(fieldId)) return;
+            stickyFormValues[fieldId] = value ?? '';
+        }
+
+        function updateStickyValuesFromFormData(formData) {
+            STICKY_FORM_FIELDS.forEach(fieldId => {
+                if (formData.has(fieldId)) {
+                    updateStickyValue(fieldId, formData.get(fieldId));
+                }
+            });
+        }
+
+        function applyStickyValueToElement(element) {
+            if (!element || !element.id) return;
+            const storedValue = stickyFormValues[element.id];
+            if (storedValue === undefined) return;
+
+            if (element.tagName === 'SELECT') {
+                const optionExists = Array.from(element.options).some(option => option.value === storedValue);
+                if (!optionExists) {
+                    element.value = '';
+                    delete stickyFormValues[element.id];
+                    return;
+                }
+            }
+
+            element.value = storedValue;
+        }
+
+        function applyStickyFormValues() {
+            STICKY_FORM_FIELDS.forEach(fieldId => {
+                const element = document.getElementById(fieldId);
+                if (!element) return;
+                applyStickyValueToElement(element);
+            });
+        }
+
+        function initStickyFormPersistence() {
+            if (!registroForm) return;
+
+            STICKY_FORM_FIELDS.forEach(fieldId => {
+                const element = document.getElementById(fieldId);
+                if (!element) return;
+                const eventName = element.tagName === 'SELECT' ? 'change' : 'input';
+                element.addEventListener(eventName, () => {
+                    updateStickyValue(fieldId, element.value);
+                });
+            });
+
+            applyStickyFormValues();
+        }
 
         // --- Funciones Auxiliares ---
         function showView(viewId) {
@@ -2335,6 +2481,8 @@
                     if (user.rol === 'Supervisor') supervisorSelect.appendChild(option.cloneNode(true));
                     if (user.rol === 'Cleaner') cleanerSelect.appendChild(option.cloneNode(true));
                 });
+
+                applyStickyValueToElement(supervisorSelect);
             } catch (error) {
                 console.error(`Error al cargar usuarios: ${error.message}`);
                 supervisorSelect.innerHTML = '<option value="">Error</option>';
@@ -2436,7 +2584,9 @@
                     // Éxito - Mostrar mensaje y resetear formulario
                     showSuccessMessage(formMessage, '¡Inspección registrada correctamente!');
                     showNotification(`Inspección para el bus ${inspeccionData.bus_ppu} registrada exitosamente.`, 'success');
+                    updateStickyValuesFromFormData(formData);
                     registroForm.reset();
+                    applyStickyFormValues();
 
                     // Actualizar vistas si corresponde
                     if (currentView === 'dashboard') loadDashboardData();
@@ -4114,6 +4264,12 @@
         async function loadTerminalesParaFormulario() {
             await populateTerminalSelect(terminalSelect, terminalErrorContainer, false, 'Seleccione Terminal');
 
+            applyStickyValueToElement(terminalSelect);
+
+            if (terminalSelect && terminalSelect.value && supabaseClient) {
+                loadBusesParaFormulario(terminalSelect.value);
+            }
+
             // Añadir listener para el cambio de terminal (solo una vez)
             if (terminalSelect && !terminalSelect.dataset.filterListenerAdded) {
                 terminalSelect.addEventListener('change', function () {
@@ -4152,6 +4308,8 @@
             criteriosCompletados = document.getElementById('criterios-completados');
             formMessage = document.getElementById('form-message');
             submitButton = document.getElementById('submit-button');
+
+            initStickyFormPersistence();
 
             // Lista de inspecciones
             inspeccionesTbody = document.getElementById('inspecciones-tbody');
