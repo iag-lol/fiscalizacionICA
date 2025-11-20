@@ -2911,7 +2911,7 @@
             while (keepFetching) {
                 let query = supabaseClient
                     .from('InspeccionICA_inspecciones')
-                    .select(`id, bus_ppu, fecha_hora_inspeccion, fecha_ultima_actualizacion_estado, nombre_fiscalizador, nombre_registrador, estado_general, observaciones_generales, terminal_inspeccion, terminal:InspeccionICA_terminales(nombre), supervisor:InspeccionICA_usuarios!InspeccionICA_inspecciones_supervisor_asignado_id_fkey(nombre_completo), cleaner:InspeccionICA_usuarios!InspeccionICA_inspecciones_cleaner_asignado_id_fkey(nombre_completo)`)
+                    .select(`id, bus_ppu, fecha_hora_inspeccion, fecha_ultima_actualizacion_estado, nombre_fiscalizador, nombre_registrador, estado_general, observaciones_generales, terminal_inspeccion, terminal:InspeccionICA_terminales(nombre), supervisor:InspeccionICA_usuarios!InspeccionICA_inspecciones_supervisor_asignado_id_fkey(nombre_completo), cleaner:InspeccionICA_usuarios!InspeccionICA_inspecciones_cleaner_asignado_id_fkey(nombre_completo), InspeccionICA_detalles_inspeccion(cumple, observacion_criterio, InspeccionICA_criterios(id, descripcion, numero_condicion))`)
                     .order('fecha_hora_inspeccion', { ascending: false })
                     .range(from, to);
 
@@ -2948,22 +2948,49 @@
 
                 const now = new Date();
                 const generatedAt = now.toLocaleString('es-CL', { dateStyle: 'long', timeStyle: 'short' });
-                const headerRow = ['#', 'PPU', 'Fecha de inspección', 'Terminal', 'Terminal de inspección', 'Fiscalizador', 'Registrador', 'Estado', 'Última actualización', 'Supervisor asignado', 'Cleaner asignado', 'Observaciones generales'];
+
+                // Encabezados incluyendo los 4 criterios del A18
+                const headerRow = [
+                    '#', 'PPU', 'Fecha de inspección', 'Terminal', 'Terminal de inspección',
+                    'Fiscalizador', 'Registrador', 'Estado', 'Última actualización',
+                    'Supervisor asignado', 'Cleaner asignado',
+                    'Criterio 1 - Limpieza Interior', 'Criterio 2 - Limpieza Exterior',
+                    'Criterio 3 - Baño', 'Criterio 4 - Motor',
+                    'Observaciones generales'
+                ];
                 const titleRow = [`Reporte de inspecciones · ${generatedAt}`, ...Array(headerRow.length - 1).fill('')];
-                const dataRows = exportData.map((item, index) => ([
-                    index + 1,
-                    item.bus_ppu || '',
-                    item.fecha_hora_inspeccion ? formatDate(item.fecha_hora_inspeccion) : '',
-                    item.terminal?.nombre || '',
-                    item.terminal_inspeccion || '',
-                    item.nombre_fiscalizador || '',
-                    item.nombre_registrador || '',
-                    item.estado_general || '',
-                    item.fecha_ultima_actualizacion_estado ? formatDate(item.fecha_ultima_actualizacion_estado) : '',
-                    item.supervisor?.nombre_completo || 'No asignado',
-                    item.cleaner?.nombre_completo || 'No asignado',
-                    item.observaciones_generales || ''
-                ]));
+
+                const dataRows = exportData.map((item, index) => {
+                    // Procesar los detalles de inspección para obtener el estado de cada criterio
+                    const criterios = {};
+                    if (item.InspeccionICA_detalles_inspeccion && Array.isArray(item.InspeccionICA_detalles_inspeccion)) {
+                        item.InspeccionICA_detalles_inspeccion.forEach(detalle => {
+                            if (detalle.InspeccionICA_criterios) {
+                                const numCondicion = detalle.InspeccionICA_criterios.numero_condicion;
+                                criterios[numCondicion] = detalle.cumple ? 'Cumple' : 'No cumple';
+                            }
+                        });
+                    }
+
+                    return [
+                        index + 1,
+                        item.bus_ppu || '',
+                        item.fecha_hora_inspeccion ? formatDate(item.fecha_hora_inspeccion) : '',
+                        item.terminal?.nombre || '',
+                        item.terminal_inspeccion || '',
+                        item.nombre_fiscalizador || '',
+                        item.nombre_registrador || '',
+                        item.estado_general || '',
+                        item.fecha_ultima_actualizacion_estado ? formatDate(item.fecha_ultima_actualizacion_estado) : '',
+                        item.supervisor?.nombre_completo || 'No asignado',
+                        item.cleaner?.nombre_completo || 'No asignado',
+                        criterios[1] || 'N/A',  // Criterio 1
+                        criterios[2] || 'N/A',  // Criterio 2
+                        criterios[3] || 'N/A',  // Criterio 3
+                        criterios[4] || 'N/A',  // Criterio 4
+                        item.observaciones_generales || ''
+                    ];
+                });
 
                 const sheets = [
                     { name: 'Inspecciones', rows: [titleRow, headerRow, ...dataRows] },
