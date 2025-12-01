@@ -39,6 +39,9 @@ CREATE TABLE "InspeccionICA_criterios" (
     id BIGSERIAL PRIMARY KEY,
     descripcion TEXT NOT NULL,
     numero_condicion INTEGER NOT NULL,
+    codigo_norma TEXT DEFAULT 'ICA',
+    codigo_articulo TEXT DEFAULT 'A18',
+    activo BOOLEAN DEFAULT true,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
